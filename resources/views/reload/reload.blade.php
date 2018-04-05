@@ -40,11 +40,36 @@
 						<div class="offset-2 col-lg-8">
 							<br/>
 							<select class="form-control" id="selectReloadCard">
-						 		 <option>Please select a Reload Card</option>
+						 		 <option value="0">Please select a Reload Card</option>
+						 		 <option value="prepaid_5">$5.00 iConnect Advanced Prepaid Reload Card</option>
+						 		 <option value="prepaid_10">$10.00 iConnect Advanced Prepaid Reload Card</option>
+						 		 <option value="Lte_3_days">$10.00 3-Day iConnect 4G LTE Reload Card</option>
 							</select>
 							<span class="Error ErrorselectReloadCard"></span>
 						</div>
 					</div>
+
+					<div class="col-lg-12 hidden " id="LteDropMessage">
+						<br/>
+						<div class="alert alert-info" role="alert" id="DropCardSubInfo">
+							iConnect 4G LTE Reload Cards are only for LTE SIMs. If you are subscribed to our 
+							<a href="#" target="_blank" class="link">Postpaid</a>
+							Plans, these reload cards are not applicable for your SIM.
+						</div>
+					</div>
+
+					<div class="col-lg-12 hidden " id="PrepaidDropMessage">
+						<br/>
+						<div class="alert alert-info" role="alert" id="DropCardSubInfo">
+							iConnect Advanced Prepaid Reload Cards are only for  
+							<a href="advanced_prepaid-plans" target="_blank" class="link">Prepaid</a>
+							SIMs. If you are subscribed to our 
+							<a href="advanced_postpaid-plans" target="_blank" class="link">Postpaid</a>
+							Plans, these reload cards are not applicable for your SIM.
+						</div>
+					</div>
+
+
 					<div class="col-lg-12">
 						<div class="offset-2 col-lg-8">
 
