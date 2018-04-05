@@ -1,0 +1,525 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+body, html{
+	margin:0px;
+	padding:0px;
+	background-color:#fff;
+	position:relative;
+}
+
+.topContainer-fluid{
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.HeaderLogo{
+	width:200px;
+}
+
+.nav-link{
+	cursor:pointer;
+}
+
+.middleNav{
+
+	.navCollapseBtn{
+
+		.fa-bars{
+			font-size:40px;
+			color:$bg-x1;
+		}
+		
+	}
+
+	li{
+		a{
+			&:hover{
+				color:$bg-x1!important;
+			}
+		}
+	}
+}
+
+.navbar{
+		
+
+		&.navBottom{
+			background-color:$bg-x1;
+			padding:0px!important;
+
+			ul{
+				li{
+					// &.active{
+					// 	border-color:$bg-x1;
+					// 	a{
+					// 		color:$bg-x1 !important;
+					// 	}
+					// }
+
+					font-size:12px;
+					font-weight:800;
+					margin-right:10px;
+
+					// &:hover{
+					// 	border-color:$bg-x1;
+					// 	a{
+					// 		cursor:pointer;
+					// 		color:$bg-x1 !important;
+					// 	}
+						
+					// }
+
+					.nav-link{
+						color:#fff !important;
+
+					}
+				}
+			}
+			.BuyLoadBtn{
+				background-color:$bg-x1;
+				color:#fff;
+				border-radius:0px;
+			}
+
+			.dropdown-toggle{
+				 &:after {
+			    	display:none;
+				}
+			}
+
+			.dropdown-menu{
+				background-color:$bg-x1;
+				border-radius:0px;
+
+				a{
+					color:#fff!important;
+
+					&:hover{
+						background-color:$bg-default;
+						color:#fff;
+					}
+				}
+
+			}
+
+
+	}
+
+}
+
+
+.topNav{
+
+	.TopNavLink{
+		&:hover{
+			cursor:pointer;
+		}
+	}
+	padding:0px;
+	background-color:#000;
+	height:20px;
+	padding-top:15px;
+	ul{
+		list-style-type:none;
+		li{
+			color:#fff;
+			display:inline;
+			margin-left:10px;
+			margin-right:10px;
+		}
+
+	}
+}
+
+.middleNav{
+	background-color:red;
+	font-weight:700;
+	.HeaderLogo{
+		width:200px;
+	}
+
+	.BuyLoadBtn{
+		border:2px solid $bg-x1;
+		background-color:transparent;
+		border-radius:0px;
+		color:$bg-x1;
+		font-weight:700;
+	}
+}
+
+.footer{
+	padding-top:20px;
+	color:#fff;
+	background-color:#000;	
+
+	ul{
+		list-style-type:none;
+
+		.ListHeader{
+			color:$bg-x1;
+			font-weight:800;
+		}
+	}
+
+
+	.bottomFooter{
+
+		hr{
+			border-top:1px solid #fff;
+		}
+
+		p{
+			font-size:10px;
+		}
+		ul{
+			li{
+				font-size:12px;
+				display:inline;
+				padding:10px 10px;
+			}
+		}
+
+
+	}
+}
+
+.HomePageDiv{
+	height:200px;
+
+}
+
+.MyMobileDiv{
+	
+	#loginToMyMobile{
+		border-radius:0px;
+		background-color:$bg-x1;
+		color:#fff;
+		border:1px solid $bg-default;	
+	}
+	.loginForm{
+
+		-webkit-box-shadow: -2px 2px 23px -7px rgba(0,0,0,0.75);
+		-moz-box-shadow: -2px 2px 23px -7px rgba(0,0,0,0.75);
+		box-shadow: -2px 2px 23px -7px rgba(0,0,0,0.75);
+
+		background-color:#f5f8fa;
+		margin-top:50px;
+		margin-bottom:100px;
+		padding-bottom:40px;
+		padding-top:40px;
+		border-radius:10px;
+		.logoDiv{
+			.logo{
+				width:200px;	
+			}
+			text-align:center;
+		}
+
+		.formLinks{
+			text-align:center;
+			span{
+				font-size:12px;
+				display:block;
+			}
+			
+		}
+		
+	}
+}
+
+.ContactPageDiv{
+	h4{
+		color:$bg-x1;
+	}
+	padding-bottom:100px;
+	padding-top:50px;
+	.messageHeader{
+		text-align:center;
+	}
+
+	.bigTitleheader{
+		text-align:center;
+		background-color:#fff;
+		padding-top:50px;
+		padding-bottom:50px;
+	}
+
+	.submitMsg{
+		background-color:$bg-x1;
+		color:#fff;
+	}
+}
+
+.sideNav{
+	z-index:2000;
+	height: 100%;
+	color:#fff;
+	background-color:#141414;
+	position: absolute;
+    top: 0;
+    bottom:0;
+    width:0px;
+    padding-top:20px;
+
+    ul{
+    	padding-left:20px;
+    	list-style-type:none;
+    	font-weight:700;
+    	li{
+    		padding-top:5px;
+    		padding-bottom:5px;
+    		display:none;
+    	}
+    }
+
+    .SideNavCommandDiv{
+    	background-color:$bg-x1;
+    	padding-right: 30px;
+	    padding-bottom: 53px;
+	    padding-top: 12px;
+    	.fa-times{
+    		float:right;
+    		font-size:40px;
+
+    	}
+    }
+}
+
+.backdrop{
+	z-index:1999;
+	position:absolute;
+	top:0;
+	bottom:0;
+	height:100%;
+	background-color:rgba(0,0,0,0.3);
+
+}
+
+.BuyIphoneXPage{
+	.header{
+		text-align:center;
+		padding-top:50px;
+	}
+
+	.infoDiv{
+		text-align:center;
+	}
+
+	.itemDiv{
+		text-align:center;
+		padding-top:50px;
+		padding-bottom:50px;
+		img{
+			height:300px;
+
+		}
+	}
+
+	.mechanicsDiv{
+		ol{
+			li{
+				padding-bottom:10px;
+			}
+		}
+	}
+	.agreementDiv{
+		text-align:center;
+		padding-top:40px;
+		label{
+			font-weight:700;
+		}
+	}
+
+	.selectPhoneBtn{
+		margin-top:40px;
+		margin-bottom:50px;
+		background-color:$bg-x1;
+		color:#fff;
+		border-radius:0px;
+	}
+
+}
+
+.ShowiPhoneXPage{
+	.header{
+		text-align:center;
+		padding-top:50px;
+	}
+
+	.infoDiv{
+		text-align:center;
+		padding-bottom:50px;
+	}
+
+	.itemDiv{
+		text-align:center;
+		padding-top:50px;
+		padding-bottom:50px;
+		img{
+			height:300px;
+
+		}
+	}
+}
+
+.ShowLteTrue4g{
+	
+	.firstRow{
+		height:500px;
+		 background: url("/images/lte4g_banner.jpg");
+		 background-position:center center;
+
+		 .Sub1Row{
+		 	margin-top:300px;
+		 	height:200px;
+		 	background-color:red;
+		 	background:rgba(255,255,255,0.7);
+		 	text-align:center;
+
+		 }
+	}
+	.secondRow{
+		padding-top:50px;
+		.header{
+			text-align:center;
+			p{
+				font-size:20px;
+				font-weight:700;
+				color:#7f7f7f;
+			}
+		}
+	}
+
+	.thirdRow{
+		padding-top:70px;
+		padding-bottom:50px;
+		img{
+			width:100%;
+		}
+		.header{
+			font-weight:700;
+			color:$bg-x1;
+
+		}
+	}
+
+	.fourthRow{
+		text-align:center;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+
+	.fifthRow{
+		padding-bottom:100px;
+		
+		.Sub1Row{
+			text-align:center;
+
+			hr{
+				width:50%;
+			}
+			
+			.header{
+				color:$bg-x1;
+				font-weight:700;
+			}
+
+			p{
+				font-size:12px;
+			}
+		}
+
+		img{
+			width:150px;
+			margin-bottom:20px;
+		}
+	}
+}
+
+
+
+.BuyloadDiv {
+	padding-bottom:100px;
+	background: -moz-linear-gradient(top, #1d88bb 0%, rgba(125, 185, 232, 0) 100%);
+	background: -webkit-linear-gradient(top, #1d88bb 0%, rgba(125, 185, 232, 0) 100%);
+	background: linear-gradient(to bottom, #1d88bb 0%, rgba(125, 185, 232, 0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#007db9e8', GradientType=0);
+}
+
+
+.SelectCardDiv{
+
+	.row2{
+		padding-top:50px;
+
+		img{
+			width:500px;
+			
+			&.stacked{
+				float:right;
+			}
+
+			&.stackedlte{
+				width:400px;
+			}
+		}
+
+	}
+	.row3{
+		
+		
+	}
+	
+}
+
+.BuyloadForm{
+	margin-top:50px;
+	padding-top:20px;
+	padding-bottom:50px;
+	background-color:#fff;
+	border-radius:5px;
+	background-color:#f5f5f5;
+	border:1px solid #e3e3e3;
+
+	.form-check{
+		font-size:13px;
+	}
+}
+
+.BuyloadDiv{
+	text-align:center;
+	.row1{
+		text-align:center;
+		color:#fff;
+		h1{
+			font-weight:700;
+
+		}
+	}
+	.vma{
+		width:200px;
+		padding-top:10px;
+	}
+}
+
+
+
+
+
+
+
+
+
