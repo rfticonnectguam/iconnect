@@ -38,7 +38,6 @@ $.iconnectguam.reload.payment = (function() {
                             window.location.href ='/reload';//go to reload page
                         }
                     }
-
                 });
 
             }else{
