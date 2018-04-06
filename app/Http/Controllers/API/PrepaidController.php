@@ -5,9 +5,12 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Prepaid_5; //added Prepaid_5 model
 use App\Prepaid_10; //added Prepaid_10 model
 use App\Lte_3_day; //added Lte_3_day model
+use App\Token; //added Lte_3_day model
 
 use Illuminate\Support\Facades\Validator;//include validator 
 use DateTime;
@@ -18,13 +21,23 @@ class PrepaidController extends Controller
 
     public function getNumberOfAvailablePrepaid5(){
 
-        $prepaid_data = Prepaid_5::where('availability', 1)->get();
+
+        try {
+        
+            $prepaid_data = Prepaid_5::where('availability', 1)->get();
+
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
 
         if(count($prepaid_data) > 0){
 
             return [
                 'status' => 'SUCCESS',
-                'data' => count($prepaid_data),
+                'dData' => count($prepaid_data),
                 'message' => 'Has an available Prepaid 5', 
             ];
 
@@ -35,11 +48,21 @@ class PrepaidController extends Controller
                 'message' => 'No Available Prepaid 5', 
             ];
         }
+
+        
     }
 
     public function getNumberOfAvailablePrepaid10(){
 
-        $prepaid_data = Prepaid_10::where('availability', 0)->get();
+       
+        try {
+            $prepaid_data = Prepaid_10::where('availability', 0)->get();
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
 
         if(count($prepaid_data) > 0){
 
@@ -60,7 +83,15 @@ class PrepaidController extends Controller
 
      public function getNumberOfAvailableLTE3days(){
 
-        $prepaid_data = Lte_3_day::where('availability', 0)->get();
+
+        try {
+           $prepaid_data = Lte_3_day::where('availability', 0)->get();
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
 
         if(count($prepaid_data) > 0){
 
@@ -85,10 +116,8 @@ class PrepaidController extends Controller
         $card = $request->Card_type;
 
         if(isset($card)){
-            
             // get the selected card
-            return $this->generateSelectedCard($card);
-
+              return $this->generateSelectedCard($card);
         }else{
             return $this->failed("Selected card not found!");
 
@@ -101,51 +130,75 @@ class PrepaidController extends Controller
 
         if($card == 'prepaid_5'){
 
-            $prepaid_data = Prepaid_5::where('availability', 0)
+            try {
+                $prepaid_data = Prepaid_5::where('availability', 0)
                                         ->inRandomOrder()
                                         ->limit(1)
                                         ->get();
-       if(count($prepaid_data) > 0){
-                 return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
-        }else{
-            //NO AVAILABLE CARD 
-            //SEND EMAIL TO USER
-            return $this->failed("No available prepaid 5 card, Please check your email");
-        }
+                if(count($prepaid_data) > 0){
+                         return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
+                }else{
+                    //NO AVAILABLE CARD 
+                    //SEND EMAIL TO USER
+                    return $this->failed("No available prepaid 5 card, Please check your email");
+                }
 
-           
+            } catch (Exception $e) {
+                return [
+                    'status' => 'FAILED',
+                    'message' => $e, 
+                ];
+            }
 
         }else if($card == 'prepaid_10'){
 
-            $prepaid_data = Prepaid_10::where('availability', 0)
-                                        ->inRandomOrder()
-                                        ->limit(1)
-                                        ->get();
+            try {
+                $prepaid_data = Prepaid_10::where('availability', 0)
+                                    ->inRandomOrder()
+                                    ->limit(1)
+                                    ->get();
 
-            if(count($prepaid_data) > 0){
-                 return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
-            }else{
-                //NO AVAILABLE CARD 
-                //SEND EMAIL TO USER
-                return $this->failed("No available prepaid 10 card, Please check your email");
+                if(count($prepaid_data) > 0){
+                     return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
+                }else{
+                    //NO AVAILABLE CARD 
+                    //SEND EMAIL TO USER
+                    return $this->failed("No available prepaid 10 card, Please check your email");
+                }
+                    
+            } catch (Exception $e) {
+                return [
+                    'status' => 'FAILED',
+                    'message' => $e, 
+                ];
             }
+
+            
                                         
             
 
         }else if($card == 'Lte_3_days'){
 
-            //get random available card
-            $prepaid_data = Lte_3_day::where('availability', 0)
-                                        ->inRandomOrder()
-                                        ->limit(1)
-                                        ->get();
+             try {
+                //get random available card
+                $prepaid_data = Lte_3_day::where('availability', 0)
+                                            ->inRandomOrder()
+                                            ->limit(1)
+                                            ->get();
 
-            if(count($prepaid_data) > 0){
-                 return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
-            }else{
-                //NO AVAILABLE CARD 
-                //SEND EMAIL TO USER
-                return $this->failed("No available LTE card, Please check your email");
+                if(count($prepaid_data) > 0){
+                     return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
+                }else{
+                    //NO AVAILABLE CARD 
+                    //SEND EMAIL TO USER
+                    return $this->failed("No available LTE card, Please check your email");
+                }
+
+            } catch (Exception $e) {
+                return [
+                    'status' => 'FAILED',
+                    'message' => $e, 
+                ];
             }
 
         }else{
@@ -202,7 +255,10 @@ class PrepaidController extends Controller
                         $request->Card_type == 'prepaid_10' || 
                             $request->Card_type == 'Lte_3_days'){
 
-                            return $this->generateSelectedCard($request->Card_type);
+                            //create token
+                            return $this->generateToken($request->Card_type);
+                            //return $this->generateSelectedCard($request->Card_type);
+                    
                 }else{
 
                     return [
@@ -318,6 +374,54 @@ class PrepaidController extends Controller
             ];
 
     }
+
+    public function generateToken (){
+
+        $token = str_random(25);    
+        
+        try{
+            
+            //check if token is already exist.
+            $query = Token::where('token', $token)->get();
+
+            if(count($query) == 0){
+
+                try {
+                    //save token
+                    DB::table('tokens')->insert(
+                        ['token' => $token]
+                    );
+
+                    return [
+                        'status' => 'SUCCESS',
+                        'data' => $token, 
+                        'message' => 'Successfully generating token'
+                    ];
+
+                } catch (Exception $e) {
+                    return [
+                        'status' => 'FAILED',
+                        'message' => $e, 
+                    ];
+                }
+
+            }else{
+                return [
+                    'status' => 'FAILED',
+                    'message' => 'Invalid Token', 
+                ];
+            }
+
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
+
+    }
+
+
 
     public function success($data,$message){
 

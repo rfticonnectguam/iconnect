@@ -97,7 +97,10 @@ $.iconnectguam.reload.payment = (function() {
                $.service.executePost('api/prepaidPayment',data).done(function (result) {
                     if(result.status =="SUCCESS"){
                         console.log("ok");
-                        //page redirect with cookie
+                          //page redirect with cookie
+                          //store token in cookie
+                           $.cookie('iConnectGuam',result.data);
+                           window.location.href = '/successpayment';
 
                     }else{
                         console.log("Failed to pay payment");

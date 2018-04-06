@@ -47,5 +47,8 @@ Route::get('getAvailableCard','API\PrepaidController@getAvailableCard');
 // this API is for generating token
 Route::get('generateToken','API\TokenController@generateToken');
 
+// this API is for checking token
+Route::post('generateToken','API\TokenController@checkToken');
+
 
 
