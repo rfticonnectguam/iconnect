@@ -2,6 +2,7 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+@import '~jquery-ui/themes/base/all.css';
 // Variables
 @import "variables";
 
@@ -512,6 +513,10 @@ body, html{
 	.vma{
 		width:200px;
 		padding-top:10px;
+	}
+
+	.ErrorChk{
+		float:none;
 	}
 }
 

@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    {{-- <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet"> --}}
+     <link href="{{ asset('css/MonthPicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -305,8 +307,16 @@
 
      <script type="text/javascript" src="{{ asset('js/plugins/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/plugins/jquery.cookie.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/jquery-ui.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/MonthPicker.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/xcript-v1.0.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/service.js') }}"></script>
      <script type="text/javascript"  src="{{ asset('js/global.js') }}"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $.xcript.library();
+        });
+    </script>
     @section('script')
     @show
 </body>

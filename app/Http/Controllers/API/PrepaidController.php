@@ -99,25 +99,40 @@ class PrepaidController extends Controller
 
     public function generateSelectedCard($card){
 
-        if($card == 'prepaid5'){
+        if($card == 'prepaid_5'){
 
             $prepaid_data = Prepaid_5::where('availability', 0)
                                         ->inRandomOrder()
                                         ->limit(1)
                                         ->get();
-                                        
-            return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
+       if(count($prepaid_data) > 0){
+                 return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
+        }else{
+            //NO AVAILABLE CARD 
+            //SEND EMAIL TO USER
+            return $this->failed("No available prepaid 5 card, Please check your email");
+        }
 
-        }else if($card == 'prepaid10'){
+           
+
+        }else if($card == 'prepaid_10'){
 
             $prepaid_data = Prepaid_10::where('availability', 0)
                                         ->inRandomOrder()
                                         ->limit(1)
                                         ->get();
-                                        
-            return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
 
-        }else if($card == 'lte3days'){
+            if(count($prepaid_data) > 0){
+                 return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
+            }else{
+                //NO AVAILABLE CARD 
+                //SEND EMAIL TO USER
+                return $this->failed("No available prepaid 10 card, Please check your email");
+            }
+                                        
+            
+
+        }else if($card == 'Lte_3_days'){
 
             //get random available card
             $prepaid_data = Lte_3_day::where('availability', 0)
@@ -125,7 +140,13 @@ class PrepaidController extends Controller
                                         ->limit(1)
                                         ->get();
 
-            return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
+            if(count($prepaid_data) > 0){
+                 return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
+            }else{
+                //NO AVAILABLE CARD 
+                //SEND EMAIL TO USER
+                return $this->failed("No available LTE card, Please check your email");
+            }
 
         }else{
             return $this->failed("Card not found!");
@@ -139,16 +160,15 @@ class PrepaidController extends Controller
         $ErrorPayload = (object) [];
         $ErrorStatus = false;
 
-         $validation = $this->validatePrepaidPayment($request->all());
+        $validation = $this->validatePrepaidPayment($request->all());
 
-         
         //run the validation
         if($validation['status'] == 'SUCCESS'){
 
             //check if valid card or prepaid card 
-            if($request->Card_type != 'prepaid5' && 
-                    $request->Card_type != 'prepaid10' && 
-                        $request->Card_type != 'lte3days'){
+            if($request->Card_type != 'prepaid_5' && 
+                    $request->Card_type != 'prepaid_10' && 
+                        $request->Card_type != 'Lte_3_days'){
 
                 $ErrorPayload->Card_type = ["Invalid Card type"];
                 $ErrorStatus = true;
@@ -165,10 +185,10 @@ class PrepaidController extends Controller
             }
             
             //check if valid credit card number
-            $validate =  $this->isValidCC($request->CCnumber);
+            $validate =  $this->isValidCC($request->CCNumber);
 
             if(!$validate){
-                $ErrorPayload->CCnumber = ['Invalid Credit card number'];
+                $ErrorPayload->CCNumber = ['Invalid Credit card number'];
                 $ErrorStatus = true;
             }
 
@@ -178,9 +198,9 @@ class PrepaidController extends Controller
                 //CALL AND SEND DATA TO PAYMENT API
                 
                 //Get random active card on selected card.
-                if( $request->Card_type == 'prepaid5' || 
-                        $request->Card_type == 'prepaid10' || 
-                            $request->Card_type == 'lte3days'){
+                if( $request->Card_type == 'prepaid_5' || 
+                        $request->Card_type == 'prepaid_10' || 
+                            $request->Card_type == 'Lte_3_days'){
 
                             return $this->generateSelectedCard($request->Card_type);
                 }else{
@@ -215,7 +235,7 @@ class PrepaidController extends Controller
             'Email' => 'required|email',
             'First_name' => 'required|string|min:2|max:25',
             'Last_name' => 'required|string|min:2|max:25',
-            'CCnumber' => 'required|integer|min:5',
+            'CCNumber' => 'required|integer|min:5',
             'CVV' => 'required|string|min:5',
             'Address' => 'required|string|min:5|max:250',
             'City' => 'required|string|min:5|max:25',

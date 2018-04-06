@@ -119,7 +119,7 @@ $.iconnectguam.reload = (function() {
       	}
 
       	if($('#reloadChkBox').is(":checked") == false){
-      		$('.ErrorreloadChkBox').html("Please check this bo if you want to proceed.");
+      		$('.ErrorreloadChkBox').html("Please check this box if you want to proceed.");
       		submit = false;
       	}
 

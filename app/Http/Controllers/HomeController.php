@@ -53,4 +53,10 @@ class HomeController extends Controller
     public function reloadpayment(){
         return view('reload.reloadPayment');
     }
+
+    public function successpayment(){
+        return view('reload.successReload');
+    }
+
+    
 }

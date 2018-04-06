@@ -54,7 +54,11 @@
 							<br/>
 							<p>A digital copy of your purchase information will be snet to this email.<br/>
 							Please make sure that thi is a valid.</p>
-							<input type="text" class="form-control" placeholder="Email">
+
+							<div class="form-group ParentEmail ">
+							    <input type="text" class="form-control" id="Email" placeholder="Email">
+							    <span class="Error ErrorEmail"></span>
+							</div>
 						</div>
 					</div>
 
@@ -71,59 +75,69 @@
 							<p>Please enter your credit card information</p>
 							<br/>
 							
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="First Name">
+							<div class="form-group ParentFirst_name ">
+							    <input type="text" class="form-control xStrictAlpha" id="First_name" placeholder="First Name">
+							    <span class="Error ErrorFirst_name"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Last Name">
+							<div class="form-group ParentLast_name">
+							    <input type="text" class="form-control" id="Last_name" placeholder="Last Name">
+							    <span class="Error ErrorLast_name"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Credit Card Number">
+							<div class="form-group ParentCCNumber">
+							    <input type="text" class="form-control xStrictNum" id="CCNumber" placeholder="Credit Card Number">
+								<span class="Error ErrorCCNumber"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="CVV">
+							<div class="form-group ParentCVV">
+							    <input type="text" class="form-control" id="CVV" placeholder="CVV">
+								<span class="Error ErrorCVV"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Address">
+							<div class="form-group ParentAddress">
+							    <input type="text" class="form-control" id="Address" placeholder="Address">
+								<span class="Error ErrorAddress"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="City">
+							<div class="form-group ParentCity">
+							    <input type="text" class="form-control" id="City" placeholder="City">
+								<span class="Error ErrorCity"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="State">
+							<div class="form-group ParentState">
+							    <input type="text" class="form-control" id="State" placeholder="State">
+								<span class="Error ErrorState"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Zipcode">
+							<div class="form-group ParentZipCode">
+							    <input type="text" class="form-control xStrictNum" id="ZipCode" placeholder="Zipcode">
+								<span class="Error ErrorZipCode"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Country">
+							<div class="form-group ParentCountry">
+							    <input type="text" class="form-control" id="Country" placeholder="Country">
+								<span class="Error ErrorCountry"></span>
 							</div>
 
-							<div class="form-group">
-							    <input type="text" class="form-control" placeholder="Expiry Date">
+							<div class="form-group ParentExpiry_date">
+							    <input type="text" class="form-control xStrictNum" id="Expiry_date" placeholder="Expiry Date ( mm/yyyy )">
+								<span class="Error ErrorExpiry_date"></span>
 							</div>
 
 							<br/>
 							<div class="form-check">
-							  <input class="form-check-input" type="checkbox" value="" id="">
+							  <input class="form-check-input" type="checkbox" id="AgreeOne">
 							 	I am an iConnect Advanced Prepaid Subscriber
 							</div>
-							
+								<span class="Error ErrorAgreeOne ErrorChk"></span>
+								<br/>
 							<div class="form-check">
 							<br/>
-							  <input class="form-check-input" type="checkbox" value="" id="">
+							  <input class="form-check-input" type="checkbox" id="AgreeTwo">
 							  I agree that any PIN purchase I make is FINAL and NON-REFUNDABLE
-							 
 							</div>
-							
+								<span class="Error ErrorAgreeTwo ErrorChk"></span>
 
 						</div>
 					</div>
@@ -140,7 +154,7 @@
 					<div class="col-lg-12">
 						<div class="offset-2 col-lg-8">
 							<br/>
-							<button class="btn btn-primary btn-block">CONFIRM</button>
+							<button class="btn btn-primary btn-block" id="submitPayment">CONFIRM</button>
 							<br/>
 							<label>For instructions on how to use your reload card, click <a href="#">here</a></label>
 						</div>
