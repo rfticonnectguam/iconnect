@@ -51,4 +51,8 @@ Route::get('generateToken','API\TokenController@generateToken');
 Route::post('generateToken','API\TokenController@checkToken');
 
 
+// this API is for checking token
+Route::post('/saveMessage','ContactController@saveMessage');
+
+
 

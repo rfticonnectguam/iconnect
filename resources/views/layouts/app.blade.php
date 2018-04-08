@@ -309,6 +309,7 @@
      <script type="text/javascript" src="{{ asset('js/plugins/jquery.cookie.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/plugins/jquery-ui.min.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/plugins/MonthPicker.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/sweetalert.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/plugins/xcript-v1.0.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/service.js') }}"></script>
      <script type="text/javascript"  src="{{ asset('js/global.js') }}"></script>

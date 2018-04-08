@@ -34,6 +34,7 @@
 			<br><br/>
 			</div>
 		</div>
+		
 		<div class="row">
 			<div class="col-md-4">
 				<img class="logo" src="{{ asset('images/iconnect-i.jpg') }}" >
@@ -64,39 +65,54 @@
 				</div>
 
 				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="Enter Name">
+					<div class="form-group ParentName">
+					    <input type="text" class="form-control" id="Name" placeholder="Enter Name">
+						<span class="Error ErrorName"></span>
+					</div>
 				</div>
 
 				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="Enter Email">
+					<div class="form-group ParentEmail">
+					    <input type="text" class="form-control" id="Email" placeholder="Enter Email">
+						<span class="Error ErrorEmail"></span>
+					</div>
 				</div>
 				<br/><br/>
 
 				<div class="col-md-12">
-					 <textarea class="form-control" rows="6" id="message" placeholder="Enter your message"></textarea>
+					<div class="form-group ParentMessage">
+					 <textarea class="form-control" rows="6" id="Message" placeholder="Enter your message"></textarea>
+					 <span class="Error ErrorMessage"></span>
+					</div>
 				</div>
 
 				<div class="offset-4 col-md-4">
 					<br/><br/>
-					 <button id="" class="btn btn-block submitMsg">SUBMIT</button>
+					 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
 				</div>
 			</div>
+
 			<br/><br/>
 
 			
 		</div>{{-- container --}}
-
-		<div class="row">
-			<div class="container-fluid">
-				<div class="bigTitleheader">
-					<h1>CALL (671)888-8888</h1>
-					<h3>EMAIL INFORMATION@ICONNECTGUAM.COM</h3>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="bigTitleheader">
+						<h1>CALL (671)888-8888</h1>
+						<h3>EMAIL INFORMATION@ICONNECTGUAM.COM</h3>
+					</div>
 				</div>
 			</div>
 		</div>
 
 	</div>
+
+	
 </div>
+
 		
 		
 
