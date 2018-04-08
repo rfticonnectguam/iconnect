@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet"> --}}
-     <link href="{{ asset('css/MonthPicker.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/Monthpicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
