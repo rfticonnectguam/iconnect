@@ -24,7 +24,7 @@ class PrepaidController extends Controller
 
         try {
         
-            $prepaid_data = Prepaid_5::where('availability', 1)->get();
+            $prepaid_data = Prepaid_5::where('availability', 0)->get();
 
         } catch (Exception $e) {
             return [
@@ -136,6 +136,7 @@ class PrepaidController extends Controller
                                         ->limit(1)
                                         ->get();
                 if(count($prepaid_data) > 0){
+
                          return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
                 }else{
                     //NO AVAILABLE CARD 
@@ -145,7 +146,7 @@ class PrepaidController extends Controller
 
             } catch (Exception $e) {
                 return [
-                    'status' => 'FAILED',
+                    'status' => 'ERROR',
                     'message' => $e, 
                 ];
             }
@@ -168,7 +169,7 @@ class PrepaidController extends Controller
                     
             } catch (Exception $e) {
                 return [
-                    'status' => 'FAILED',
+                    'status' => 'ERROR',
                     'message' => $e, 
                 ];
             }
@@ -196,7 +197,7 @@ class PrepaidController extends Controller
 
             } catch (Exception $e) {
                 return [
-                    'status' => 'FAILED',
+                    'status' => 'ERROR',
                     'message' => $e, 
                 ];
             }
@@ -256,8 +257,20 @@ class PrepaidController extends Controller
                             $request->Card_type == 'Lte_3_days'){
 
                             //create token
-                            return $this->generateToken($request->Card_type);
-                            //return $this->generateSelectedCard($request->Card_type);
+                            //get available selected card and store it on cookie
+                            
+                            //check if has available card on not 
+                            $available_card = $this->generateSelectedCard($request->Card_type);
+
+                            if($available_card['status'] == "SUCCESS"){
+                                return $available_card;
+
+                            }else if($available_card['status'] == "FAILED"){
+                                //TODO 
+                                //send email to the registered email
+                                return $this->failed($available_card['message']);                                    
+                            }
+                            
                     
                 }else{
 

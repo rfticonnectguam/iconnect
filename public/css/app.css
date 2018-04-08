@@ -9177,6 +9177,8 @@ body, html {
       float: right; }
     .SelectCardDiv .row2 img.stackedlte {
       width: 400px; }
+.SelectCardDiv .Error {
+  float: none; }
 
 .BuyloadForm {
   margin-top: 50px;
