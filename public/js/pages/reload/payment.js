@@ -27,7 +27,6 @@ $.iconnectguam.reload.payment = (function() {
 
         //check if has available card
           $.service.executeGet('api/getAvailableCard').done(function (result) {
-              console.log(result);
               
               if(result.status == "SUCCESS"){
                   
@@ -90,17 +89,16 @@ $.iconnectguam.reload.payment = (function() {
               Expiry_date: $('#Expiry_date').val(),
               Card_type: $.cookie('selectedCard'),
           }
-
-          console.log(data);
+         
           if(__validateSubmitPayment(data)){
                 //call payment api
                $.service.executePost('api/prepaidPayment',data).done(function (result) {
                     if(result.status =="SUCCESS"){
                         console.log("ok");
                           //page redirect with cookie
-                          //store token in cookie
-                           $.cookie('iConnectGuam',result.data);
-                           window.location.href = '/successpayment';
+                          $.cookie('pin',result.data[0].pin);
+                          $.cookie('serial',result.data[0].serial_number);
+                          window.location.href = '/successpayment';
 
                     }else{
                         console.log("Failed to pay payment");

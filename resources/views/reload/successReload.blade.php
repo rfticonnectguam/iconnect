@@ -52,8 +52,8 @@
 					<div class="col-lg-12">
 						<div class="offset-2 col-lg-8">
 							<br/>
-							<p>A digital copy of your purchase information will be snet to this email.<br/>
-							Please make sure that thi is a valid.</p>
+							<span>SERIAL NUMBER : </span><span id="serial"></span><br/>
+							<span>PIN : </span><span id="pin"></span>
 
 							{{-- <div class="form-group ParentEmail ">
 							    <input type="text" class="form-control" id="Email" placeholder="Email">

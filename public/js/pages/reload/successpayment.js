@@ -16,27 +16,19 @@ $.iconnectguam.success.payment = (function() {
 
       console.log();
       //check if cookie exist
-       if(typeof($.cookie('iConnectGuam') !== "undefined")){
-          
-        //validate cookie
-        if($.cookie('iConnectGuam') != '' && $.cookie('iConnectGuam') != null){
-              var data = {
-                token : $.cookie('iConnectGuam'),
-              }
+       if(typeof($.cookie('pin')) !== "undefined" && 
+            typeof($.cookie('serial')) !== "undefined" &&
+              $.cookie('pin') != '' && 
+              $.cookie('pin') != null &&
+              $.cookie('serial') != '' && 
+              $.cookie('serial') != null){
+              
+              $pin = $.cookie('pin');
+              $serial = $.cookie('serial');
 
-              $.service.executePost('api/generateToken',data).done(function (result) {
-                if(result.status == "SUCCESS"){
-                    console.log("ok");
-                    //page redirect with cookie
-                }else{
-                   console.log("not set");
-                   window.location.href ='/reload';//go to reload page
-                }
-           });//prepaidPayment
-        }else{
-          console.log("not set");
-          window.location.href ='/reload';//go to reload page
-        }
+              $('#pin').html($pin);
+              $('#serial').html($serial);
+
       
       }else{
          console.log("not set");
