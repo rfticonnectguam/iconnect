@@ -15,6 +15,10 @@ use App\Token; //added Lte_3_day model
 use Illuminate\Support\Facades\Validator;//include validator 
 use DateTime;
 
+use Mail; //added mail function
+use App\Mail\sendPaymentErrorEmail;//added payment error email
+
+
 class PrepaidController extends Controller
 {
     //
@@ -266,9 +270,25 @@ class PrepaidController extends Controller
                                 return $available_card;
 
                             }else if($available_card['status'] == "FAILED"){
-                                //TODO 
+                                
                                 //send email to the registered email
-                                return $this->failed($available_card['message']);                                    
+                                try {
+                                    
+                                    Mail::send(new sendPaymentErrorEmail());
+
+                                    $array_data = [];
+                                    return [
+                                        'status' => 'SUCCESS',
+                                        'data' => $array_data,
+                                        'message' => 'Email has been sent to your email',
+                                    ];
+                                } catch (Exception $e) {
+                                    return [
+                                        'status' => 'ERROR',
+                                        'message' => $e,
+                                    ];
+                                }
+                              
                             }
                             
                     

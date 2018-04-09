@@ -94,11 +94,21 @@ $.iconnectguam.reload.payment = (function() {
                 //call payment api
                $.service.executePost('api/prepaidPayment',data).done(function (result) {
                     if(result.status =="SUCCESS"){
-                        console.log("ok");
+                        
+                        //check the length of data
+                        if(result.data.length > 0){
+                          console.log("ok");
+
                           //page redirect with cookie
                           $.cookie('pin',result.data[0].pin);
                           $.cookie('serial',result.data[0].serial_number);
                           window.location.href = '/successpayment';
+
+                        }else{
+                          //TODO clear all inputs
+                          swal("Oops!", "Please check you email!", "error");
+                        }
+                        
 
                     }else{
                         console.log("Failed to pay payment");

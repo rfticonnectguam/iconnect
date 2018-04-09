@@ -1,12 +1,10 @@
 //TODO
 
+//Remove all inputs when failed after payment
+
 //Page for reloadPayment send email
 
 //Make a custom validation using laravel rules
-
-//update xcript regarding on the functions
-
-//add credicard validation on script
 
 //implement select2 on date
 
