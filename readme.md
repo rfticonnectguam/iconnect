@@ -2,6 +2,10 @@
 
 //Remove all inputs when failed after payment
 
+//Redesign email view
+
+//Implement logs
+
 //Page for reloadPayment send email
 
 //Make a custom validation using laravel rules
