@@ -52,8 +52,8 @@
 					<div class="col-lg-12">
 						<div class="offset-2 col-lg-8">
 							<br/>
-							<span>SERIAL NUMBER : </span><span id="serial"></span><br/>
-							<span>PIN : </span><span id="pin"></span>
+							<span>SERIAL NUMBER : </span><span class="solid" id="serial"></span><br/>
+							<span>PIN : </span><span class="solid" id="pin"></span>
 
 							{{-- <div class="form-group ParentEmail ">
 							    <input type="text" class="form-control" id="Email" placeholder="Email">
