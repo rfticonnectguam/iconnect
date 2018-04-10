@@ -16,6 +16,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <div class="loader">
+
+    <div class="lds-css ng-scope" style="width: 200px; height: 200px;"><div style="width:100%;height:100%" class="lds-ripple"><div></div><div></div></div>
+  </div>
+    {{-- <img src="{{ asset('images/Ripple-1.3s-200px.gif') }}"> --}}
+  </div>
   
     <nav class="navbar topNav">
         <div class="container">

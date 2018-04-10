@@ -22,8 +22,10 @@ $.iconnectguam.reload = (function() {
 
          if($(this).val() != 0){
             //check if available
+             $('.loader').removeClass('hidden');
              $.service.executeGet('api/getAvailableCard').done(function (result) {
-                  
+                
+                $('.loader').addClass('hidden');  
                 if(result.status == "SUCCESS"){
 
                   $.each(result.data,function(index,val){

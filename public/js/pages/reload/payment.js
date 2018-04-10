@@ -10,12 +10,15 @@ $.iconnectguam.reload.payment = (typeof $.iconnectguam.reload.payment !== 'undef
 
 $.iconnectguam.reload.payment = (function() {
 
-	var __attachedEvents = function(){
+  var __attachedEvents = function(){
 
-  		console.log("attached events on reload page");
+      console.log("attached events on reload page");
 
       // check if cookie is exist
       console.log($.cookie('selectedCard'));
+      //clear data
+      $('.form-control').val("");
+      $("input:checkbox").prop("checked",false);
 
       //store cards in array
       var validCard = ['prepaid_5','prepaid_10','Lte_3_days'];
@@ -92,6 +95,7 @@ $.iconnectguam.reload.payment = (function() {
          
           if(__validateSubmitPayment(data)){
                 //call payment api
+               $('.loader').removeClass('hidden');
                $.service.executePost('api/prepaidPayment',data).done(function (result) {
                     if(result.status =="SUCCESS"){
                         
@@ -105,7 +109,9 @@ $.iconnectguam.reload.payment = (function() {
                           window.location.href = '/successpayment';
 
                         }else{
-                          //TODO clear all inputs
+                          //clear all inputs and show swal
+                          $('.form-control').val("");
+                          $("input:checkbox").prop("checked",false);
                           swal("Oops!", "Please check you email!", "error");
                         }
                         
@@ -113,6 +119,8 @@ $.iconnectguam.reload.payment = (function() {
                     }else{
                         console.log("Failed to pay payment");
                     }
+
+                    $('.loader').addClass('hidden');
                });//prepaidPayment
 
           }else{
@@ -244,9 +252,9 @@ $.iconnectguam.reload.payment = (function() {
       };
 
 
-	};
+  };
 
-	return {
-		attachedEvents : __attachedEvents
-	};
+  return {
+    attachedEvents : __attachedEvents
+  };
 }());
