@@ -18,7 +18,7 @@ class CreateLte3DaysTable extends Migration
             $table->integer('serial_number');
             $table->string('pin');
             $table->string('availability');
-            $table->date('purchased_date')->nullable();
+            $table->dateTime('purchased_date')->nullable();
             $table->string('email')->nullable();
             $table->timestamps();
         });
