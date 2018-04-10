@@ -1,7 +1,5 @@
 //TODO
 
-//Generate logs when failed on updating availability when generating available card
-
 //Make a custom validation using laravel rules
 
 //Implement logs
