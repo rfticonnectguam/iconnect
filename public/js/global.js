@@ -11,7 +11,8 @@ $( document ).ready(function() {
 		//add active class when page load;		
 		let url = window.location.pathname.split( '/' );
 		$('.NavItem').removeClass('active');
-
+		$('.loader').addClass('hidden');
+		
 		if(url[1] == ''){
 			$('.NavLinkHomePage').addClass('active');
 		}else if(url[1] == 'events'){
