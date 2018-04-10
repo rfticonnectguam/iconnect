@@ -30,7 +30,7 @@ class sendPaymentErrorEmail extends Mailable
      */
     public function build(Request $request)
     {   
-        $name = $request->First_name." ".$request->Last_name;
+        $name = ucfirst($request->First_name)." ".ucfirst($request->Last_name);
         return $this->view('mail.reloadError',['name'=>$name])->to($request->Email);
     }
 }
