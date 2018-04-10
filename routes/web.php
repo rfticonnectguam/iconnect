@@ -46,7 +46,8 @@ Route::get('/reload', 'HomeController@reload')->name('reload');
 //route for reaload payment
 Route::get('/reloadpayment', 'HomeController@reloadpayment')->name('reloadpayment');
 
-//route for reaload payment
+//route for reaload success payment
 Route::get('/successpayment', 'HomeController@successpayment')->name('successpayment');
+
 
 

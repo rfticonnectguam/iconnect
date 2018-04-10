@@ -11,12 +11,15 @@ use App\Prepaid_5; //added Prepaid_5 model
 use App\Prepaid_10; //added Prepaid_10 model
 use App\Lte_3_day; //added Lte_3_day model
 use App\Token; //added Lte_3_day model
+use App\PendingLoad; // pendingload model
 
 use Illuminate\Support\Facades\Validator;//include validator 
 use DateTime;
 
 use Mail; //added mail function
 use App\Mail\sendPaymentErrorEmail;//added payment error email
+
+
 
 
 class PrepaidController extends Controller
@@ -114,23 +117,23 @@ class PrepaidController extends Controller
         }
     }
 
-    public function getRandomSelectedCard(Request $request){
+    // public function getRandomSelectedCard(Request $request){
 
-        //check if request id is exist
-        $card = $request->Card_type;
+    //     //check if request id is exist
+    //     $card = $request->Card_type;
 
-        if(isset($card)){
-            // get the selected card
-              return $this->generateSelectedCard($card);
-        }else{
-            return $this->failed("Selected card not found!");
+    //     if(isset($card)){
+    //         // get the selected card
+    //           return $this->generateSelectedCard($card);
+    //     }else{
+    //         return $this->failed("Selected card not found!");
 
-        }//end of if and else
+    //     }//end of if and else
 
-    }
+    // }
 
 
-    public function generateSelectedCard($card){
+    public function generateSelectedCard($card,$email){
 
         if($card == 'prepaid_5'){
 
@@ -140,8 +143,24 @@ class PrepaidController extends Controller
                                         ->limit(1)
                                         ->get();
                 if(count($prepaid_data) > 0){
+                        
+                    //update availability after generating
+                    try {
+                       Prepaid_5::where('id', $prepaid_data[0]->id)
+                                    ->update([
+                                        'availability' => 1,
+                                        'purchased_date' => new DateTime(),
+                                        'email'=>$email
+                                        ]); 
 
-                         return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
+                        return $this->success($prepaid_data,'Successfully getting random available prepaid 5 card');
+                                    
+                    } catch (Exception $e) {
+                        //todo insert to logs
+                        return $this->failed("Unable to update availability");
+                    }
+
+                        
                 }else{
                     //NO AVAILABLE CARD 
                     //SEND EMAIL TO USER
@@ -164,7 +183,25 @@ class PrepaidController extends Controller
                                     ->get();
 
                 if(count($prepaid_data) > 0){
-                     return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
+
+                    //update availability after generating
+                    try {
+                       Prepaid_10::where('id', $prepaid_data[0]->id)
+                                    ->update([
+                                        'availability' => 1,
+                                        'purchased_date' => new DateTime(),
+                                        'email'=>$email
+                                        ]); 
+                                     
+                        return $this->success($prepaid_data,'Successfully getting random available prepaid 10 card');
+                                    
+                    } catch (Exception $e) {
+                        //todo insert to logs
+                        return $this->failed("Unable to update availability");
+                    }
+
+
+                    
                 }else{
                     //NO AVAILABLE CARD 
                     //SEND EMAIL TO USER
@@ -178,10 +215,6 @@ class PrepaidController extends Controller
                 ];
             }
 
-            
-                                        
-            
-
         }else if($card == 'Lte_3_days'){
 
              try {
@@ -192,7 +225,25 @@ class PrepaidController extends Controller
                                             ->get();
 
                 if(count($prepaid_data) > 0){
-                     return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
+
+                    //update availability after generating
+                    try {
+
+                       Lte_3_day::where('id', $prepaid_data[0]->id)
+                                    ->update([
+                                        'availability' => 1,
+                                        'purchased_date' => new DateTime(),
+                                        'email'=>$email
+                                        ]); 
+                                     
+                       return $this->success($prepaid_data,'Successfully getting random available lte 3 days card');
+                                    
+                    } catch (Exception $e) {
+                        //todo insert to logs
+                        return $this->failed("Unable to update availability");
+                    }
+
+                     
                 }else{
                     //NO AVAILABLE CARD 
                     //SEND EMAIL TO USER
@@ -264,24 +315,49 @@ class PrepaidController extends Controller
                             //get available selected card and store it on cookie
                             
                             //check if has available card on not 
-                            $available_card = $this->generateSelectedCard($request->Card_type);
+                            $available_card = $this->generateSelectedCard($request->Card_type,$request->Email);
 
                             if($available_card['status'] == "SUCCESS"){
                                 return $available_card;
 
                             }else if($available_card['status'] == "FAILED"){
                                 
-                                //send email to the registered email
                                 try {
                                     
+                                    //insert data on pending_load table
+                                     $PendingLoad = DB::table('pending_loads')->insert([
+                                        'product' => $request->Card_type,
+                                        'status' => 1,
+                                        'first_name' => $request->First_name,
+                                        'last_name' => $request->Last_name,
+                                        'email' => $request->Email,
+                                        'created_at' => new DateTime()
+                                    ]);
+
+                                     //send email to the registered email 
                                     Mail::send(new sendPaymentErrorEmail());
 
-                                    $array_data = [];
-                                    return [
-                                        'status' => 'SUCCESS',
-                                        'data' => $array_data,
-                                        'message' => 'Email has been sent to your email',
-                                    ];
+                                    try {
+
+                                        $PendingLoad;
+
+                                        $array_data = [];
+                                        return [
+                                            'status' => 'SUCCESS',
+                                            'data' => $array_data,
+                                            'message' => 'Email has been sent to your email',
+                                        ];
+
+                                    } catch (Exception $e) {
+                                        return [
+                                            'status' => 'FAILED',
+                                            'message' => $e, 
+                                        ];
+                                    }
+
+
+                                    
+
                                 } catch (Exception $e) {
                                     return [
                                         'status' => 'ERROR',
