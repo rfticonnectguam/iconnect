@@ -19,13 +19,10 @@ use DateTime;
 use Mail; //added mail function
 use App\Mail\sendPaymentErrorEmail;//added payment error email
 
-
-
-
 class PrepaidController extends Controller
 {
     //
-
+    
     public function getNumberOfAvailablePrepaid5(){
 
 
@@ -269,6 +266,7 @@ class PrepaidController extends Controller
         $ErrorPayload = (object) [];
         $ErrorStatus = false;
 
+        //return 'show ok';
         $validation = $this->validatePrepaidPayment($request->all());
 
         //run the validation
