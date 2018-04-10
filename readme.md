@@ -1,14 +1,12 @@
 //TODO
 
-//Remove all inputs when failed after payment
+//Generate logs when failed on updating availability when generating available card
 
-//Redesign email view
+//Make a custom validation using laravel rules
 
 //Implement logs
 
 //Page for reloadPayment send email
-
-//Make a custom validation using laravel rules
 
 //implement select2 on date
 
