@@ -78,7 +78,8 @@ class ContactController extends Controller
         $validation =  Validator::make($data, [
             'Name' => 'required|string|min:3|max:25',
             'Email' => 'required|email|unique:contact_messages',
-            'Message' => 'required|string|min:5|max:255'
+            'Message' => 'required|string|min:5|max:255',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         if ($validation->fails()) {

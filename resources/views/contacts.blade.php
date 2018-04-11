@@ -86,8 +86,16 @@
 					</div>
 				</div>
 
+				<div class="col-lg-12">
+					<div class="offset-4 col-lg-4 recaptchaContactDiv">
+						{!! Recaptcha::render() !!}
+
+						<span class="Error ErrorRecaptcha"></span>
+					</div>
+				</div>
+
 				<div class="offset-4 col-md-4">
-					<br/><br/>
+					<br/>
 					 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
 				</div>
 			</div>

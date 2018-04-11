@@ -11868,3 +11868,12 @@ html {
   transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }
 
+.ReloadPayment .recaptchaDiv {
+  padding-left: 35px;
+  text-align: center;
+}
+
+.recaptchaContactDiv {
+  padding-left: 30px;
+}
+
