@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;//include validator
 use Illuminate\Support\Facades\DB;
+use Mapper;
 
 class ContactController extends Controller
 {
@@ -24,10 +25,13 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        Mapper::map(13.503813, 144.803023, ['zoom' => 13,'center' => true, 'marker' => true]);
+        Mapper::marker(13.519893, 144.817574);
+        Mapper::marker(13.489788, 144.781911);
+        Mapper::marker(13.471375, 144.755719);
         return view('contacts');
     }
-
 
     public function saveMessage(Request $request){
         //return $request->all();

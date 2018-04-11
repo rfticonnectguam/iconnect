@@ -98,7 +98,10 @@
 					<br/>
 					 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
 				</div>
+
 			</div>
+
+
 
 			<br/><br/>
 
@@ -115,6 +118,105 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 googleMap no-space">
+					{!! Mapper::render() !!}
+				</div>
+
+				<div class="col-lg-6 ">
+					<div class="row">
+						<div class="col-lg-12 OfficeInfo">
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 grayBG OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+							
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+								
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 grayBG OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
 
 	</div>
 
