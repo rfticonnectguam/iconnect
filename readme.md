@@ -1,5 +1,9 @@
 //TODO
 
+//Get Error data in laravel validation
+
+//Implement google map
+
 //Implement logs
 
 //Page for reloadPayment send email
