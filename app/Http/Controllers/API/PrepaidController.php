@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Validator;//include validator
 use DateTime;
 
 use Mail; //added mail function
-use App\Mail\sendPaymentErrorEmail;//added payment error email
+use App\Mail\sendPaymentErrorEmail;//added payment error mail
+use App\Mail\reloadSuccess;//added reload success mail
 
 use App\Library\xcriptValidation;//added xcript custom validation library
 
@@ -313,6 +314,17 @@ class PrepaidController extends Controller
                             $available_card = $this->generateSelectedCard($request->Card_type,$request->Email);
 
                             if($available_card['status'] == "SUCCESS"){
+
+                                //send card detail on email
+                                $data = [
+                                    'email' => $request->Email,
+                                    'name' => ucfirst($request->First_name).' '.ucfirst($request->Last_name),
+                                    'pin' => $available_card['data'][0]['pin'],
+                                    'serial' => $available_card['data'][0]['serial_number'],
+                                ];
+
+                                Mail::send(new reloadSuccess($data));
+
                                 return $available_card;
 
                             }else if($available_card['status'] == "FAILED"){
@@ -403,8 +415,8 @@ class PrepaidController extends Controller
             'Country' => 'required|string|min:5|max:25',
             'Expiry_date' => 'required|string|min:5|max:25',
             'Card_type' => 'required|string',
+            'captcha_response' => 'required|recaptcha',
         ]);
-
 
         if ($validation->fails()) {
             return [
@@ -420,7 +432,7 @@ class PrepaidController extends Controller
         ];
        
     }
-    
+
     public function getAvailableCard(){
 
         $card = [

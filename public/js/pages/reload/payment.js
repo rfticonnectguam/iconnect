@@ -91,12 +91,16 @@ $.iconnectguam.reload.payment = (function() {
               Country: $('#Country').val(),
               Expiry_date: $('#Expiry_date').val(),
               Card_type: $.cookie('selectedCard'),
+              captcha_response: grecaptcha.getResponse()
           }
          
           if(__validateSubmitPayment(data)){
                 //call payment api
                $('.loader').removeClass('hidden');
                $.service.executePost('api/prepaidPayment',data).done(function (result) {
+                    
+                    grecaptcha.reset();
+                    
                     if(result.status =="SUCCESS"){
                         
                         //check the length of data
