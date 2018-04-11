@@ -1,7 +1,5 @@
 //TODO
 
-//Get Error data in laravel validation
-
 //Implement logs
 
 //Page for reloadPayment send email
