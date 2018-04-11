@@ -150,9 +150,18 @@
 						</div>
 					</div>
 
+					<div class="col-lg-12">
+						<div class="offset-3 col-lg-4 recaptchaDiv">
+							{!! Recaptcha::render() !!}
 
+							<span class="Error ErrorRecaptcha"></span>
+						</div>
+					</div>
 					<div class="col-lg-12">
 						<div class="offset-2 col-lg-8">
+								
+
+
 							<br/>
 							<button class="btn btn-primary btn-block" id="submitPayment">CONFIRM</button>
 							<br/>

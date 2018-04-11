@@ -244,6 +244,14 @@ $.iconnectguam.reload.payment = (function() {
               console.log("false");
           }
 
+          //validate recaptcha
+          var response = grecaptcha.getResponse();
+          if(response.length == 0){
+              submit = false;
+              console.log("false");
+              $('.ErrorRecaptcha').html("This captcha is required.");
+
+          }
 
           if(submit){
             return true;
