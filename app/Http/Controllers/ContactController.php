@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;//include validator
 use Illuminate\Support\Facades\DB;
 use Mapper;
 
+use Mail; //added mail function
+use App\Mail\ContactEmail;//added contact email
+
 class ContactController extends Controller
 {
     /**
@@ -45,17 +48,30 @@ class ContactController extends Controller
             //store in database
             try {
                 //save message
-                DB::table('contact_messages')->insert([
+                $saveData = DB::table('contact_messages')->insert([
                         'Name' => $request->Name,
                         'Email' => $request->Email,
                         'Message' => $request->Message
                     ]);
+               
+                 //send email to admin
+                Mail::send(new ContactEmail());
 
-                return [
-                    'status' => 'SUCCESS',
-                    'message' => 'Message has been sent', 
-                ];
+                try {
 
+                    $saveData;
+
+                     return [
+                        'status' => 'SUCCESS',
+                        'message' => 'Message has been sent', 
+                    ];
+
+                } catch (Exception $e) {
+                    return [
+                        'status' => 'FAILED',
+                        'message' => $e, 
+                    ];
+                }
 
             } catch (Exception $e) {
                 return [
@@ -81,9 +97,9 @@ class ContactController extends Controller
         //todo regex validation for message
         $validation =  Validator::make($data, [
             'Name' => 'required|string|min:3|max:25',
-            'Email' => 'required|email|unique:contact_messages',
+            'Email' => 'required|email',
             'Message' => 'required|string|min:5|max:255',
-            'g-recaptcha-response' => 'required|recaptcha',
+            'recaptcha_response' => 'required|recaptcha',
         ]);
 
         if ($validation->fails()) {

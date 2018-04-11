@@ -19,13 +19,19 @@ $.iconnectguam.contacts = (function() {
 				Name: $('#Name').val(),
 				Email: $('#Email').val(),
 				Message: $('#Message').val(),
+				recaptcha_response : grecaptcha.getResponse(),
 			}
 
 			console.log(data);
 			if(__validateMessage(data)){
 				console.log("ok");
-
+				
+				$('.loader').removeClass('hidden');
 				$.service.executePost('api/saveMessage',data).done(function (result) {
+
+					grecaptcha.reset();
+					
+					$('.loader').addClass('hidden');
                     if(result.status =="SUCCESS"){
                         
                     	//show swal alert
