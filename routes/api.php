@@ -55,4 +55,7 @@ Route::post('generateToken','API\TokenController@checkToken');
 Route::post('/saveMessage','ContactController@saveMessage');
 
 
+Route::get('viewimage','API\PrepaidController@imageCreator');
+
+
 

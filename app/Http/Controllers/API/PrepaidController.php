@@ -511,7 +511,30 @@ class PrepaidController extends Controller
 
     }
 
+    public function imageCreator(){
 
+        return dd(gd_info());
+
+        $serial_number = "123";
+        $pin = "456";
+
+        $image = 'back-lte.png';
+        $x_s = 343; $y_s = 83;
+        $x_p = 120; $y_p = 58;
+        
+        $im = ImageCreateFromPNG('images/reload/'.$image);
+        $black = ImageColorAllocate($im, 0, 0, 0);
+        $font = 'fonts/Digit.TTF';
+        ImageTTFText($im, 17, 0, $x_s, $y_s, $black, $font, $serial);
+        ImageTTFText($im, 17, 0, $x_p, $y_p, $black, $font, $pin);
+        $background = imagecolorallocate($im, 255, 255, 255);
+        imagecolortransparent($im, $background);
+        imagealphablending($im, false);
+        imagesavealpha($im, true);
+        header('Content-Type: image/png');
+        ImagePNG($im);
+        ImageDestroy($im);
+    }
 
     public function success($data,$message){
 
