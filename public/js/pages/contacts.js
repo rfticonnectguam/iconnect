@@ -30,7 +30,7 @@ $.iconnectguam.contacts = (function() {
 				$.service.executePost('api/saveMessage',data).done(function (result) {
 
 					grecaptcha.reset();
-					
+
 					$('.loader').addClass('hidden');
                     if(result.status =="SUCCESS"){
                         
@@ -42,6 +42,13 @@ $.iconnectguam.contacts = (function() {
                     	$('#Message').val("");
 
                     }else{
+
+                    	//catch errors
+                    	if(typeof(result.data.name) !== "undefined"){
+                    		//show error for name
+                    		$('.ErrorName').html(result.data.name[0]);
+                    	}
+
                         console.log("Failed to send message");
                     	swal("Oops!", "Failed to send your message!", "error");
                     }

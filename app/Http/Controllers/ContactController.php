@@ -55,7 +55,7 @@ class ContactController extends Controller
                     ]);
                
                  //send email to admin
-                Mail::send(new ContactEmail());
+                //Mail::send(new ContactEmail());
 
                 try {
 
@@ -99,7 +99,7 @@ class ContactController extends Controller
             'Name' => 'required|string|min:3|max:25',
             'Email' => 'required|email',
             'Message' => 'required|string|min:5|max:255',
-            'recaptcha_response' => 'required|recaptcha',
+            //'recaptcha_response' => 'required|recaptcha',
         ]);
 
         if ($validation->fails()) {
