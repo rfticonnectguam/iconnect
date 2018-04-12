@@ -15,7 +15,7 @@ class CreatePrepaid10sTable extends Migration
     {
         Schema::create('prepaid_10s', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('serial_number');
+            $table->string('serial_number');
             $table->string('pin');
             $table->string('availability');
             $table->dateTime('purchased_date')->nullable();

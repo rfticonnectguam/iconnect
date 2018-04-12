@@ -15,7 +15,7 @@ class CreateLte3DaysTable extends Migration
     {
         Schema::create('lte_3_days', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('serial_number');
+            $table->string('serial_number');
             $table->string('pin');
             $table->string('availability');
             $table->dateTime('purchased_date')->nullable();
