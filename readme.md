@@ -1,5 +1,6 @@
 //TODO
 
+//change the title bar of every page
 
 //Implement logs
 

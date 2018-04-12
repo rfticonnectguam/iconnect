@@ -50,3 +50,8 @@ Route::get('/reloadpayment', 'HomeController@reloadpayment')->name('reloadpaymen
 Route::get('/successpayment', 'HomeController@successpayment')->name('successpayment');
 
 
+
+Route::get('/test', 'HomeController@test')->name('test');
+Route::post('/test', 'HomeController@sendData')->name('sendData');
+
+
