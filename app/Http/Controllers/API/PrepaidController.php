@@ -323,6 +323,7 @@ class PrepaidController extends Controller
                                     'serial' => $available_card['data'][0]['serial_number'],
                                 ];
 
+
                                 Mail::send(new reloadSuccess($data));
 
                                 return $available_card;
@@ -511,22 +512,21 @@ class PrepaidController extends Controller
 
     }
 
-    public function imageCreator(){
 
-        return dd(gd_info());
+    public function showImage(Request $request,$pin,$serial){
 
-        $serial_number = "123";
-        $pin = "456";
+        $serial = $serial;
+        $pin = $pin;
 
         $image = 'back-lte.png';
-        $x_s = 343; $y_s = 83;
-        $x_p = 120; $y_p = 58;
+        $x_s = 385; $y_s = 83;
+        $x_p = 120; $y_p = 60;
         
         $im = ImageCreateFromPNG('images/reload/'.$image);
         $black = ImageColorAllocate($im, 0, 0, 0);
-        $font = 'fonts/Digit.TTF';
-        ImageTTFText($im, 17, 0, $x_s, $y_s, $black, $font, $serial);
-        ImageTTFText($im, 17, 0, $x_p, $y_p, $black, $font, $pin);
+        $font = 'fonts/Digit.ttf';
+        imagettftext($im, 17, 0, $x_s, $y_s, $black, $font, $serial);
+        imagettftext($im, 17, 0, $x_p, $y_p, $black, $font, $pin);
         $background = imagecolorallocate($im, 255, 255, 255);
         imagecolortransparent($im, $background);
         imagealphablending($im, false);

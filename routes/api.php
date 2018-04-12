@@ -55,7 +55,7 @@ Route::post('generateToken','API\TokenController@checkToken');
 Route::post('/saveMessage','ContactController@saveMessage');
 
 
-Route::get('viewimage','API\PrepaidController@imageCreator');
+Route::get('/successpayment/{pin}/{serial}', 'API\PrepaidController@showImage')->name('showImage');
 
 
 

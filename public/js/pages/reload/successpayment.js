@@ -23,11 +23,16 @@ $.iconnectguam.success.payment = (function() {
               $.cookie('serial') != '' && 
               $.cookie('serial') != null){
               
-              $pin = $.cookie('pin');
-              $serial = $.cookie('serial');
+              var pin = $.cookie('pin');
+              var serial = $.cookie('serial');
 
-              $('#pin').html($pin);
-              $('#serial').html($serial);
+              //generate png using php
+              //get the base_url
+              var base_url = window.location.origin ;
+              $('#generateCard').attr("src",base_url+"/api/successpayment/"+pin+"/"+serial);
+              
+              $('#pin').html(pin);
+              $('#serial').html(serial);
 
       
       }else{

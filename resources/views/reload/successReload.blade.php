@@ -44,7 +44,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 					<br/>
-						<img class="stackedlte" src="{{ asset('images/card3.png') }}">
+						<img class="stackedlte" id="generateCard" >
 					</div>
 				</div>
 				

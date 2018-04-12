@@ -50,4 +50,3 @@ Route::get('/reloadpayment', 'HomeController@reloadpayment')->name('reloadpaymen
 Route::get('/successpayment', 'HomeController@successpayment')->name('successpayment');
 
 
-
