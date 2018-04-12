@@ -109,9 +109,9 @@
 		</div>{{-- container --}}
 		
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row callToAction">
 				<div class="col-lg-12">
-					<div class="bigTitleheader">
+					<div class="bigTitleheader callToAction">
 						<h1>CALL (671)888-8888</h1>
 						<h3>EMAIL INFORMATION@ICONNECTGUAM.COM</h3>
 					</div>
@@ -128,6 +128,7 @@
 				<div class="col-lg-6 ">
 					<div class="row">
 						<div class="col-lg-12 OfficeInfo">
+							<br>
 							<strong>Main Office Upper Tumon/Tamuning</strong>
 
 							<small>

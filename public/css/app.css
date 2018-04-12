@@ -11546,6 +11546,16 @@ html {
   color: #fff;
 }
 
+.ContactPageDiv .recaptchaContactDiv {
+  padding-left: 35px;
+}
+
+.ContactPageDiv .callToAction {
+  background-color: #eee;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .sideNav {
   z-index: 2000;
   height: 100%;
@@ -11875,10 +11885,6 @@ html {
 .ReloadPayment .recaptchaDiv {
   padding-left: 35px;
   text-align: center;
-}
-
-.recaptchaContactDiv {
-  padding-left: 30px;
 }
 
 .googleMap {

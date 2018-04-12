@@ -519,7 +519,7 @@ class PrepaidController extends Controller
         $pin = $pin;
 
         $image = 'back-lte.png';
-        $x_s = 385; $y_s = 83;
+        $x_s = 343; $y_s = 83;
         $x_p = 120; $y_p = 60;
         
         $im = ImageCreateFromPNG('images/reload/'.$image);
