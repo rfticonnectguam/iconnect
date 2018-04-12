@@ -1,6 +1,5 @@
 //TODO
 
-//Image creator
 
 //Implement logs
 
