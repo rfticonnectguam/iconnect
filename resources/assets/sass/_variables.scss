@@ -12,6 +12,9 @@ $bg-x1: #f57c00;
 $bg-x2: #fb8c00;
 $bg-darken: #e65100;
 
+.Capitalized{
+	text-transform: capitalize;
+}
 .solid{
 	font-weight:700;
 }
