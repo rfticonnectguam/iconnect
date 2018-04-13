@@ -29,18 +29,20 @@ class ContactController extends Controller
      */
     public function index()
     {   
+        $this->showMapper();
+        return view('contacts');
+    }
+
+    public function showMapper(){
         Mapper::map(13.503813, 144.803023, ['zoom' => 13,'center' => true, 'marker' => true]);
         Mapper::marker(13.519893, 144.817574);
         Mapper::marker(13.489788, 144.781911);
         Mapper::marker(13.471375, 144.755719);
-        return view('contacts');
     }
 
     public function saveMessage(Request $request){
-        //return $request->all();
-        
-        //validate data
 
+        //validate data
         $validation = $this->validateMessage($request->all());
 
         if($validation['status'] == 'SUCCESS'){
@@ -61,34 +63,45 @@ class ContactController extends Controller
 
                     $saveData;
 
-                     return [
+                    $payload = [
                         'status' => 'SUCCESS',
                         'message' => 'Message has been sent', 
-                    ];
+                     ];
 
                 } catch (Exception $e) {
-                    return [
-                        'status' => 'FAILED',
+
+                    $payload = [
+                        'status' => 'ERROR',
                         'message' => $e, 
-                    ];
+                      ];
                 }
 
             } catch (Exception $e) {
-                return [
+
+                 $payload = [
                     'status' => 'ERROR',
                     'message' => $e, 
-                ];  
+                  ];
             }
 
 
-            return [
-                'status' => 'SUCCESS',
-                'message' => 'Message has been sent', 
-            ]; 
+            $payload = [
+                'status'=>'SUCCESS',
+                'message'=>'Message has been sent',
+              ];
 
         }else{
-            return $validation;
+            //return $validation;
+
+            $payload = [
+                'status'=>'FAILED',
+                'data' => $validation,
+                'message'=>'Failed on validation',
+              ];
         }
+
+        $this->showMapper();
+        return view('contacts')->with($payload);
 
     }
 
@@ -99,7 +112,7 @@ class ContactController extends Controller
             'Name' => 'required|string|min:3|max:25',
             'Email' => 'required|email',
             'Message' => 'required|string|min:5|max:255',
-            'recaptcha_response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         if ($validation->fails()) {

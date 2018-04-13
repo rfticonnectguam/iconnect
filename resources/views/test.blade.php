@@ -6,6 +6,23 @@
 	<div class="row">
 		<div class="offset-lg-4 col-lg-4">
 			<br/><br/>
+
+			@if(!empty($status))
+				@if($status == "SUCCESS")
+				  	<script>
+				  		 var status = {!! json_encode($status) !!};
+				  		 var data = {!! json_encode($data) !!};
+				  		 var message = {!! json_encode($message) !!};
+				  	</script>
+			  	@elseif($status == "failed")
+			  		<script>
+				  		 var status = {!! json_encode($status) !!};
+				  		 var data = {!! json_encode($data) !!};
+				  		 var message = {!! json_encode($message) !!};
+				  	</script>
+			  	@endif
+			@endif
+
 			<form id="login" action="test" method="post">
 			{{csrf_field()}}
 			  <div class="form-group">
@@ -41,6 +58,13 @@
    <script type="text/javascript">
         $(document).ready(function() {
         	 $.global.library();
+
+        	 if(status == "SUCCESS"){
+        	 	swal("Great!", "Please check you email!", "success");
+        	 }else if(status =="FAILED"){
+        	 	console.log(message);
+        	 }
+
             $('#submitData').on('click',function(e){
             	
             	e.preventDefault();

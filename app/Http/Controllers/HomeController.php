@@ -73,7 +73,7 @@ class HomeController extends Controller
             'data'=>$payload,
             'message'=>'Successfully getting data',
             ];
-        return view('output')->with($data);
+        return view('test')->with($data);
     }
 
     

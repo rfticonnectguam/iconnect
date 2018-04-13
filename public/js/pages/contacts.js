@@ -13,7 +13,9 @@ $.iconnectguam.contacts = (function() {
 
 		console.log("attached events on contact page");
 
-		$('#sendMsg').on('click',function(){
+		$('#sendMsg').on('click',function(e){
+			
+			e.preventDefault();
 
 			var data = {
 				Name: $('#Name').val(),
@@ -24,41 +26,46 @@ $.iconnectguam.contacts = (function() {
 
 			console.log(data);
 			if(__validateMessage(data)){
-				console.log("ok");
-				
+
 				$('.loader').removeClass('hidden');
-				$.service.executePost('api/saveMessage',data).done(function (result) {
-
-					grecaptcha.reset();
-
-					$('.loader').addClass('hidden');
-                    if(result.status =="SUCCESS"){
-                        
-                    	//show swal alert
-                    	swal("Great!", "Your message has been sent!", "success");
-                    	//clean up	
-                    	$('#Name').val("");
-                    	$('#Email').val("");
-                    	$('#Message').val("");
-
-                    }else{
-
-                    	//catch errors
-                    	if(typeof(result.data.name) !== "undefined"){
-                    		//show error for name
-                    		$('.ErrorName').html(result.data.name[0]);
-                    	}
-
-                        console.log("Failed to send message");
-                    	swal("Oops!", "Failed to send your message!", "error");
-                    }
-              	});//prepaidPayment
+				$('#submitMsg').submit();
 
 			}else{
 				console.log("Failed on validation");
 			}
 
 		});
+
+		if(status != ""){
+			console.log(status);
+			if(status == "SUCCESS"){
+	        	//show swal alert
+	        	swal("Great!", "Your message has been sent!", "success");
+	     
+	        }else if(status == "FAILED"){
+	        	//catch errors
+	        	if(typeof(data) !== "undefined"){
+	        		//show error for name
+	        		
+	        		if(typeof(data.Name) !== "undefined"){
+	        			$('.ErrorName').html(data.Name[0]);
+	        		}
+
+	        		if(typeof(data.Email) !== "undefined"){
+	        			$('.ErrorEmail').html(data.Email[0]);
+	        		}
+
+	        		if(typeof(data.Message) !== "undefined"){
+	        			$('.ErrorMessage').html(data.Message[0]);
+	        		}
+	        		
+	        	}
+	         	console.log("Failed to send message");
+	        	
+	        }else{
+	        	swal("Oops!", "Failed to send your message!", "error");
+	        }
+		}
 
 
 		var __validateMessage = function(data){

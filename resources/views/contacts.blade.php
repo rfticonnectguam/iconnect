@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Connect with us')
+
 @section('content')
 
 <div class="ContactPageDiv">
@@ -57,50 +59,84 @@
 
 		</div>
 
-			<div class="row">
-				<div class="col-lg-12 messageHeader">
-					<br/><br/><br/>
-					<h1>CONTACT US</h1>
-					<br/>
-				</div>
+			@if(!empty($status))
+				<script>	
+					@if($status == "SUCCESS")
 
-				<div class="col-md-6">
-					<div class="form-group ParentName">
-					    <input type="text" class="form-control" id="Name" placeholder="Enter Name">
-						<span class="Error ErrorName"></span>
+						var status = {!! json_encode($status) !!};
+				  		var message = {!! json_encode($message) !!};
+
+						@if(!empty($data))
+							 var data = {!! json_encode($data) !!};
+						@else
+							var data = "";
+						@endif
+
+				  	@elseif($status == "FAILED")
+
+			  			var status = {!! json_encode($status) !!};
+				  		var message = {!! json_encode($message) !!};
+
+						@if(!empty($data))
+							 var data = {!! json_encode($data) !!};
+						@else
+							var data = "";
+						@endif
+					  
+				  	@else
+
+				  		 var status = {!! json_encode($status) !!};
+				  		 var message = {!! json_encode($message) !!};
+				  	
+				  	@endif
+				 </script>
+			@endif
+
+			<form id="submitMsg" method="post" action="contacts">
+				{{csrf_field()}}
+				<div class="row">
+					<div class="col-lg-12 messageHeader">
+						<br/><br/><br/>
+						<h1>CONTACT US</h1>
+						<br/>
 					</div>
-				</div>
 
-				<div class="col-md-6">
-					<div class="form-group ParentEmail">
-					    <input type="text" class="form-control" id="Email" placeholder="Enter Email">
-						<span class="Error ErrorEmail"></span>
+					<div class="col-md-6">
+						<div class="form-group ParentName">
+						    <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter Name">
+							<span class="Error ErrorName"></span>
+						</div>
 					</div>
-				</div>
-				<br/><br/>
 
-				<div class="col-md-12">
-					<div class="form-group ParentMessage">
-					 <textarea class="form-control" rows="6" id="Message" placeholder="Enter your message"></textarea>
-					 <span class="Error ErrorMessage"></span>
+					<div class="col-md-6">
+						<div class="form-group ParentEmail">
+						    <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter Email">
+							<span class="Error ErrorEmail"></span>
+						</div>
 					</div>
-				</div>
+					<br/><br/>
 
-				<div class="col-lg-12">
-					<div class="offset-4 col-lg-4 recaptchaContactDiv">
-						{!! Recaptcha::render() !!}
-
-						<span class="Error ErrorRecaptcha"></span>
+					<div class="col-md-12">
+						<div class="form-group ParentMessage">
+						 <textarea class="form-control" rows="6" name="Message" id="Message" placeholder="Enter your message"></textarea>
+						 <span class="Error ErrorMessage"></span>
+						</div>
 					</div>
+
+					<div class="col-lg-12">
+						<div class="offset-4 col-lg-4 recaptchaContactDiv">
+							{!! Recaptcha::render() !!}
+							<span class="Error ErrorRecaptcha"></span>
+						</div>
+					</div>
+
+					<div class="offset-4 col-md-4">
+						<br/>
+						 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
+					</div>
+
 				</div>
-
-				<div class="offset-4 col-md-4">
-					<br/>
-					 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
-				</div>
-
-			</div>
-
+			</form>
 
 
 			<br/><br/>
