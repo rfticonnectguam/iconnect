@@ -52,7 +52,7 @@ Route::get('/reloadpayment', 'HomeController@reloadpayment')->name('reloadpaymen
 //route for reaload success payment
 Route::get('/successpayment', 'HomeController@successpayment')->name('successpayment');
 
-
+//for testing only
 Route::get('/test', 'HomeController@test')->name('test');
 Route::post('/test', 'HomeController@sendData')->name('sendData');
 
