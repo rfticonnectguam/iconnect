@@ -122,54 +122,57 @@ $.iconnectguam.reload.payment = (function() {
 
                     }else{
                       //show data
-                        if(typeof(data.CVV) != "undefined"){
+
+                      console.log(result.data);
+
+                        if(typeof(result.data.CVV) != "undefined" && result.data.CVV != "" ){
                             $('.ParentCVV').addClass("ErrorField");   
-                            $('.ErrorCVV').html(data.CVV[0]);
+                            $('.ErrorCVV').html(result.data.CVV[0]);
                         }
 
-                        if(typeof(data.Email) != "undefined"){
+                        if(typeof(result.data.Email) != "undefined" && result.data.Email != "" ){
                            $('.ParentEmail').addClass("ErrorField");   
                            $('.ErrorEmail').html(data.Email[0]);
                         }
 
-                        if(typeof(data.First_name) != "undefined"){
+                        if(typeof(result.data.First_name) != "undefined" && result.data.First_name != "" ){
                            $('.ParentFirst_name').addClass("ErrorField"); 
-                           $('.ErrorFirst_name').html(data.First_name[0]);
+                           $('.ErrorFirst_name').html(result.data.First_name[0]);
                         }
 
-                        if(typeof(data.Last_name) != "undefined"){
+                        if(typeof(result.data.Last_name) != "undefined" && result.data.Last_name != "" ){
                            $('.ParentLast_name').addClass("ErrorField"); 
-                           $('.ErrorLast_name').html(data.Last_name[0]);
+                           $('.ErrorLast_name').html(result.data.Last_name[0]);
                         }
 
-                        if(typeof(data.CCNumber) != "undefined"){
+                        if(typeof(result.data.CCNumber) != "undefined" && result.data.CCNumber != "" ){
                            $('.ParentCCNumber').addClass("ErrorField"); 
-                           $('.ErrorCCNumber').html(data.CCNumber[0]);
+                           $('.ErrorCCNumber').html(result.data.CCNumber[0]);
                         }
 
-                        if(typeof(data.Address) != "undefined"){
+                        if(typeof(result.data.Address) != "undefined" && result.data.Address != "" ){
                            $('.ParentAddress').addClass("ErrorField"); 
-                           $('.ErrorAddress').html(data.Address[0]);
+                           $('.ErrorAddress').html(result.data.Address[0]);
                         }
 
-                        if(typeof(data.City) != "undefined"){
+                        if(typeof(result.data.City) != "undefined" && result.data.City != "" ){
                            $('.ParentCity').addClass("ErrorField"); 
-                           $('.ErrorCity').html(data.City[0]);
+                           $('.ErrorCity').html(result.data.City[0]);
                         }
 
-                        if(typeof(data.State) != "undefined"){
+                        if(typeof(result.data.State) != "undefined" && result.data.State != "" ){
                            $('.ParentState').addClass("ErrorField"); 
-                           $('.ErrorState').html(data.State[0]);
+                           $('.ErrorState').html(result.data.State[0]);
                         }
 
-                        if(typeof(data.ZipCode) != "undefined"){
+                        if(typeof(result.data.ZipCode) != "undefined" && result.data.ZipCode != "" ){
                            $('.ParentZipCode').addClass("ErrorField"); 
-                           $('.ErrorZipCode').html(data.ZipCode[0]);
+                           $('.ErrorZipCode').html(result.data.ZipCode[0]);
                         }
 
-                        if(typeof(data.Country) != "undefined"){
+                        if(typeof(result.data.Country) != "undefined" && result.data.Country != "" ){
                            $('.ParentCountry').addClass("ErrorField"); 
-                           $('.ErrorCountry').html(data.Country[0]);
+                           $('.ErrorCountry').html(result.data.Country[0]);
                         }
 
                         console.log("Failed to pay payment");
