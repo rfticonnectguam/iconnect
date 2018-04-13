@@ -1,4 +1,4 @@
-/*! This is script is for iconnectguam home page | 
+/*! This is script is for iconnectguam reload success payment page | 
  * Author: Reygie Florida Tarroquin
  * Date  : 04/02/18
  */
