@@ -25,6 +25,9 @@ Route::get('/events', 'EventController@index')->name('event');
 //route for contacts page
 Route::get('/contacts', 'ContactController@index')->name('contact');
 
+//route for contacts page
+Route::post('/contacts', 'ContactController@saveMessage')->name('saveMessage');
+
 //route for mymobile login page
 Route::get('/mymobile', 'HomeController@myMobileAccount')->name('mymobile');
 
@@ -48,7 +51,6 @@ Route::get('/reloadpayment', 'HomeController@reloadpayment')->name('reloadpaymen
 
 //route for reaload success payment
 Route::get('/successpayment', 'HomeController@successpayment')->name('successpayment');
-
 
 
 Route::get('/test', 'HomeController@test')->name('test');
