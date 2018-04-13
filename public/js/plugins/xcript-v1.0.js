@@ -178,7 +178,7 @@ $( document ).ready(function() {
 	  		return false;
 	    });
 
-	    //Convert text to Capital letters
+	    //Convert text to Small letters
 	    $('.xToLower').on('keypress',function(){
 	   		$(this).val(function (_, val) {
 				return val + String.fromCharCode(event.which).toLowerCase();
