@@ -78,12 +78,12 @@
 							<br/>
 							
 							<div class="form-group ParentFirst_name ">
-							    <input type="text" class="form-control xStrictAlpha" id="First_name" placeholder="First Name">
+							    <input type="text" class="form-control xStrictAlpha Capitalized" id="First_name" placeholder="First Name">
 							    <span class="Error ErrorFirst_name"></span>
 							</div>
 
 							<div class="form-group ParentLast_name">
-							    <input type="text" class="form-control" id="Last_name" placeholder="Last Name">
+							    <input type="text" class="form-control Capitalized" id="Last_name" placeholder="Last Name">
 							    <span class="Error ErrorLast_name"></span>
 							</div>
 
@@ -102,8 +102,8 @@
 								<span class="Error ErrorAddress"></span>
 							</div>
 
-							<div class="form-group ParentCity">
-							    <input type="text" class="form-control" id="City" placeholder="City">
+							<div class="form-group ParentCity ">
+							    <input type="text" class="form-control Capitalized" id="City" placeholder="City">
 								<span class="Error ErrorCity"></span>
 							</div>
 
@@ -118,7 +118,7 @@
 							</div>
 
 							<div class="form-group ParentCountry">
-							    <input type="text" class="form-control" id="Country" placeholder="Country">
+							    <input type="text" class="form-control Capitalized" id="Country" placeholder="Country">
 								<span class="Error ErrorCountry"></span>
 							</div>
 

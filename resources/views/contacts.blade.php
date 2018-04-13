@@ -103,7 +103,7 @@
 
 					<div class="col-md-6">
 						<div class="form-group ParentName">
-						    <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter Name">
+						    <input type="text" class="form-control Capitalized" name="Name" id="Name" placeholder="Enter Name">
 							<span class="Error ErrorName"></span>
 						</div>
 					</div>
