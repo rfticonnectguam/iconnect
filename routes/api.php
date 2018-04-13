@@ -50,11 +50,7 @@ Route::get('generateToken','API\TokenController@generateToken');
 // this API is for checking token
 Route::post('generateToken','API\TokenController@checkToken');
 
-
-// this API is for checking token
-Route::post('/saveMessage','ContactController@saveMessage');
-
-
+// this API is for successpayment 
 Route::get('/successpayment/{pin}/{serial}', 'API\PrepaidController@showImage')->name('showImage');
 
 
