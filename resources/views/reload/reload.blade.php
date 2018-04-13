@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Buy Load')
+
 @section('content')
 
 <div class="SelectCardDiv BuyloadDiv">
