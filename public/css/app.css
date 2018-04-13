@@ -11370,6 +11370,18 @@ html {
   cursor: pointer;
 }
 
+.swal-modal .swal-icon--success__line {
+  background-color: #f57c00;
+}
+
+.swal-modal .swal-icon--success__ring {
+  border: 4px solid #df8130;
+}
+
+.swal-modal .swal-button--confirm {
+  background-color: #f57c00;
+}
+
 .middleNav .navCollapseBtn .fa-bars {
   font-size: 40px;
   color: #f57c00;
