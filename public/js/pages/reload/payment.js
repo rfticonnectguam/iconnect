@@ -121,6 +121,57 @@ $.iconnectguam.reload.payment = (function() {
                         
 
                     }else{
+                      //show data
+                        if(typeof(data.CVV) != "undefined"){
+                            $('.ParentCVV').addClass("ErrorField");   
+                            $('.ErrorCVV').html(data.CVV[0]);
+                        }
+
+                        if(typeof(data.Email) != "undefined"){
+                           $('.ParentEmail').addClass("ErrorField");   
+                           $('.ErrorEmail').html(data.Email[0]);
+                        }
+
+                        if(typeof(data.First_name) != "undefined"){
+                           $('.ParentFirst_name').addClass("ErrorField"); 
+                           $('.ErrorFirst_name').html(data.First_name[0]);
+                        }
+
+                        if(typeof(data.Last_name) != "undefined"){
+                           $('.ParentLast_name').addClass("ErrorField"); 
+                           $('.ErrorLast_name').html(data.Last_name[0]);
+                        }
+
+                        if(typeof(data.CCNumber) != "undefined"){
+                           $('.ParentCCNumber').addClass("ErrorField"); 
+                           $('.ErrorCCNumber').html(data.CCNumber[0]);
+                        }
+
+                        if(typeof(data.Address) != "undefined"){
+                           $('.ParentAddress').addClass("ErrorField"); 
+                           $('.ErrorAddress').html(data.Address[0]);
+                        }
+
+                        if(typeof(data.City) != "undefined"){
+                           $('.ParentCity').addClass("ErrorField"); 
+                           $('.ErrorCity').html(data.City[0]);
+                        }
+
+                        if(typeof(data.State) != "undefined"){
+                           $('.ParentState').addClass("ErrorField"); 
+                           $('.ErrorState').html(data.State[0]);
+                        }
+
+                        if(typeof(data.ZipCode) != "undefined"){
+                           $('.ParentZipCode').addClass("ErrorField"); 
+                           $('.ErrorZipCode').html(data.ZipCode[0]);
+                        }
+
+                        if(typeof(data.Country) != "undefined"){
+                           $('.ParentCountry').addClass("ErrorField"); 
+                           $('.ErrorCountry').html(data.Country[0]);
+                        }
+
                         console.log("Failed to pay payment");
                     }
 
