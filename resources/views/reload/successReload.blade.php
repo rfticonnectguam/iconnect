@@ -4,6 +4,27 @@
 
 @section('content')
 
+@if(isset($status) && $status == "SUCCESS")
+	<script>
+		var status = {!! json_encode($status) !!};
+  		@if(!empty($message))
+			 var message = {!! json_encode($message) !!};
+		@else
+			var message = "";
+		@endif
+
+		@if(!empty($data))
+			 var data = {!! json_encode($data) !!};
+		@else
+			var data = "";
+		@endif
+	</script>
+@else
+	<script>
+		window.location.href ='/reload';//go to reload page	
+	</script>
+@endif
+
 <div class="ReloadPayment BuyloadDiv">
 	<div class="container ">
 		<div class='row row1'>

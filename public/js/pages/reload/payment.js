@@ -51,7 +51,9 @@ $.iconnectguam.reload.payment = (function() {
 
           //generate DOM data
           var selectedCartType = $.cookie('selectedCard');
-          
+
+          $('#Card_type').val(selectedCartType);
+
           if(selectedCartType == 'prepaid_5' || selectedCartType == 'prepaid_10' ){
 
              $('#HeaderMsg').html("iConnect 4G LTE Reload Cards are only for LTE SIMs."+
@@ -68,6 +70,80 @@ $.iconnectguam.reload.payment = (function() {
 
       }//end of if and else
 
+
+      //check if has an error
+      if(status == "FAILED"){
+        //show errors
+        console.log("Failed on backend validation");
+        console.log(data);
+        //TODO MINIFIED
+        if(typeof(data.data.Email) !== "undefined"){
+          $('.ParentEmail').addClass("ErrorField");   
+          $('.ErrorEmail').html(data.data.Email[0]);  
+        }
+
+        if(typeof(data.data.First_name) !== "undefined"){
+          $('.ParentFirst_name').addClass("ErrorField");   
+          $('.ErrorFirst_name').html(data.data.First_name[0]);  
+        }
+
+        if(typeof(data.data.Last_name) !== "undefined"){
+          $('.ParentLast_name').addClass("ErrorField");   
+          $('.ErrorLast_name').html(data.data.Last_name[0]);  
+        }
+
+        if(typeof(data.data.Last_name) !== "undefined"){
+          $('.ParentLast_name').addClass("ErrorField");   
+          $('.ErrorLast_name').html(data.data.Last_name[0]);  
+        }
+
+        if(typeof(data.data.CCNumber) !== "undefined"){
+          $('.ParentCCNumber').addClass("ErrorField");   
+          $('.ErrorCCNumber').html(data.data.CCNumber[0]);  
+        }
+
+        if(typeof(data.data.CVV) !== "undefined"){
+          $('.ParentCVV').addClass("ErrorField");   
+          $('.ErrorCvv').html(data.data.CVV[0]);  
+        }
+
+        if(typeof(data.data.Address) !== "undefined"){
+          $('.ParentAddress').addClass("ErrorField");   
+          $('.ErrorAddress').html(data.data.Address[0]);  
+        }
+
+        if(typeof(data.data.City) !== "undefined"){
+          $('.ParentCity').addClass("ErrorField");   
+          $('.ErrorCity').html(data.data.City[0]);  
+        }
+
+        if(typeof(data.data.State) !== "undefined"){
+          $('.ParentState').addClass("ErrorField");   
+          $('.ErrorState').html(data.data.State[0]);  
+        }
+
+        if(typeof(data.data.ZipCode) !== "undefined"){
+          $('.ParentZipCode').addClass("ErrorField");   
+          $('.ErrorZipCode').html(data.data.ZipCode[0]);  
+        }
+
+        if(typeof(data.data.Country) !== "undefined"){
+          $('.ParentCountry').addClass("ErrorField");   
+          $('.ErrorCountry').html(data.data.Country[0]);  
+        }
+
+        if(typeof(data.data.Expiry_date) !== "undefined"){
+          $('.ParentExpiry_date').addClass("ErrorField");   
+          $('.ErrorExpiry_date').html(data.data.Expiry_date[0]);  
+        }
+        
+      }else if(status == "ERROR"){
+        //show error logs
+        console.log($data);
+      }//end of if and else
+
+
+
       $('#Expiry_date').MonthPicker({ 
           Button: false,
           MinMonth: 0
@@ -76,7 +152,9 @@ $.iconnectguam.reload.payment = (function() {
       $("#exp_date").MonthPicker('option', 'MonthFormat', 'mm/y');
 
 
-      $('#submitPayment').on('click',function(){
+      $('#submitPayment').on('click',function(e){
+
+          e.preventDefault();
 
           var data = {
               Email : $('#Email').val(),
@@ -95,91 +173,9 @@ $.iconnectguam.reload.payment = (function() {
           }
          
           if(__validateSubmitPayment(data)){
-                //call payment api
-               $('.loader').removeClass('hidden');
-               $.service.executePost('api/prepaidPayment',data).done(function (result) {
-                    
-                    grecaptcha.reset();
-                    
-                    if(result.status =="SUCCESS"){
-                        
-                        //check the length of data
-                        if(result.data.length > 0){
-                          console.log("ok");
-
-                          //page redirect with cookie
-                          $.cookie('pin',result.data[0].pin);
-                          $.cookie('serial',result.data[0].serial_number);
-                          window.location.href = '/successpayment';
-
-                        }else{
-                          //clear all inputs and show swal
-                          $('.form-control').val("");
-                          $("input:checkbox").prop("checked",false);
-                          swal("Oops!", "Please check you email!", "error");
-                        }
-                        
-
-                    }else{
-                      //show data
-
-                      console.log(result.data);
-
-                        if(typeof(result.data.CVV) != "undefined" && result.data.CVV != "" ){
-                            $('.ParentCVV').addClass("ErrorField");   
-                            $('.ErrorCVV').html(result.data.CVV[0]);
-                        }
-
-                        if(typeof(result.data.Email) != "undefined" && result.data.Email != "" ){
-                           $('.ParentEmail').addClass("ErrorField");   
-                           $('.ErrorEmail').html(data.Email[0]);
-                        }
-
-                        if(typeof(result.data.First_name) != "undefined" && result.data.First_name != "" ){
-                           $('.ParentFirst_name').addClass("ErrorField"); 
-                           $('.ErrorFirst_name').html(result.data.First_name[0]);
-                        }
-
-                        if(typeof(result.data.Last_name) != "undefined" && result.data.Last_name != "" ){
-                           $('.ParentLast_name').addClass("ErrorField"); 
-                           $('.ErrorLast_name').html(result.data.Last_name[0]);
-                        }
-
-                        if(typeof(result.data.CCNumber) != "undefined" && result.data.CCNumber != "" ){
-                           $('.ParentCCNumber').addClass("ErrorField"); 
-                           $('.ErrorCCNumber').html(result.data.CCNumber[0]);
-                        }
-
-                        if(typeof(result.data.Address) != "undefined" && result.data.Address != "" ){
-                           $('.ParentAddress').addClass("ErrorField"); 
-                           $('.ErrorAddress').html(result.data.Address[0]);
-                        }
-
-                        if(typeof(result.data.City) != "undefined" && result.data.City != "" ){
-                           $('.ParentCity').addClass("ErrorField"); 
-                           $('.ErrorCity').html(result.data.City[0]);
-                        }
-
-                        if(typeof(result.data.State) != "undefined" && result.data.State != "" ){
-                           $('.ParentState').addClass("ErrorField"); 
-                           $('.ErrorState').html(result.data.State[0]);
-                        }
-
-                        if(typeof(result.data.ZipCode) != "undefined" && result.data.ZipCode != "" ){
-                           $('.ParentZipCode').addClass("ErrorField"); 
-                           $('.ErrorZipCode').html(result.data.ZipCode[0]);
-                        }
-
-                        if(typeof(result.data.Country) != "undefined" && result.data.Country != "" ){
-                           $('.ParentCountry').addClass("ErrorField"); 
-                           $('.ErrorCountry').html(result.data.Country[0]);
-                        }
-
-                        console.log("Failed to pay payment");
-                    }
-
-                    $('.loader').addClass('hidden');
-               });//prepaidPayment
+              
+              $('.loader').removeClass('hidden');
+              $('#paymentForm').submit(); 
 
           }else{
             console.log("failed on validation");
@@ -275,7 +271,7 @@ $.iconnectguam.reload.payment = (function() {
           }
 
           //validate email
-           var Email = $.xcript.validateInputs(data.Email);
+          var Email = $.xcript.validateInputs(data.Email);
           if(Email ==  false){
                $('.ParentEmail').addClass("ErrorField");   
                $('.ErrorEmail').html("Required");  
@@ -305,7 +301,7 @@ $.iconnectguam.reload.payment = (function() {
           //validate recaptcha
           var response = grecaptcha.getResponse();
           if(response.length == 0){
-              submit = false;
+              //submit = false;
               console.log("false");
               $('.ErrorRecaptcha').html("This captcha is required.");
 

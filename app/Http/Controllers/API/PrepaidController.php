@@ -326,7 +326,7 @@ class PrepaidController extends Controller
 
                                 Mail::send(new reloadSuccess($data));
 
-                                return $available_card;
+                                $payload =  $available_card;
 
                             }else if($available_card['status'] == "FAILED"){
                                 
@@ -348,16 +348,16 @@ class PrepaidController extends Controller
                                     try {
 
                                         $PendingLoad;
-
                                         $array_data = [];
-                                        return [
+                                       
+                                        $payload = [
                                             'status' => 'SUCCESS',
                                             'data' => $array_data,
                                             'message' => 'Email has been sent to your email',
                                         ];
 
                                     } catch (Exception $e) {
-                                        return [
+                                        $payload = [
                                             'status' => 'FAILED',
                                             'message' => $e, 
                                         ];
@@ -367,7 +367,7 @@ class PrepaidController extends Controller
                                     
 
                                 } catch (Exception $e) {
-                                    return [
+                                    $payload = [
                                         'status' => 'ERROR',
                                         'message' => $e,
                                     ];
@@ -378,7 +378,7 @@ class PrepaidController extends Controller
                     
                 }else{
 
-                    return [
+                    $payload = [
                         'status' => 'FAILED',
                         'message' => 'Selected card not found',
                    ];
@@ -387,7 +387,7 @@ class PrepaidController extends Controller
             }else{
 
                 //Invalid data
-                return [
+                $payload = [
                     'status' => 'FAILED',
                     'data'=> $ErrorPayload,
                     'message' => 'Invalid data',
@@ -396,8 +396,22 @@ class PrepaidController extends Controller
 
             
         }else{
-          return $validation;
+                
+             $payload = [
+                    'status' => 'FAILED',
+                    'data'=> $validation,
+                    'message' => 'Failed on validation',
+               ];
         }
+
+        //check payload status
+        if($payload['status'] == "SUCCESS"){
+            //redirect to success page
+            return view('reload/successReload')->with($payload);
+        }else{
+            return view('reload/reloadPayment')->with($payload);   
+        }
+        
 
     }
 
@@ -416,7 +430,7 @@ class PrepaidController extends Controller
             'Country' => 'required|string|min:5|max:25',
             'Expiry_date' => 'required|string|min:5|max:25',
             'Card_type' => 'required|string',
-            'captcha_response' => 'required|recaptcha',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         if ($validation->fails()) {

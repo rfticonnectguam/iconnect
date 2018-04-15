@@ -14,32 +14,20 @@ $.iconnectguam.success.payment = (function() {
 
   		console.log("attached events on success payment page");
 
-      console.log();
-      //check if cookie exist
-       if(typeof($.cookie('pin')) !== "undefined" && 
-            typeof($.cookie('serial')) !== "undefined" &&
-              $.cookie('pin') != '' && 
-              $.cookie('pin') != null &&
-              $.cookie('serial') != '' && 
-              $.cookie('serial') != null){
-              
-              var pin = $.cookie('pin');
-              var serial = $.cookie('serial');
+      if(status =="SUCCESS"){
+          console.log(data);
+          var pin = data[0].pin;
+          var serial = data[0].serial_number;
 
-              //generate png using php
-              //get the base_url
-              var base_url = window.location.origin ;
-              $('#generateCard').attr("src",base_url+"/api/successpayment/"+pin+"/"+serial);
-              
-              $('#pin').html(pin);
-              $('#serial').html(serial);
+          var base_url = window.location.origin ;
+          $('#generateCard').attr("src",base_url+"/api/successpayment/"+pin+"/"+serial);
 
-      
+          $('#pin').html(pin);
+          $('#serial').html(serial);
+
       }else{
-         console.log("not set");
-         window.location.href ='/reload';//go to reload page
+        window.location.href ='/reload';//go to reload page
       }
-      
 
 	};
 
