@@ -11898,8 +11898,16 @@ html {
 }
 
 .ReloadPayment .recaptchaDiv {
-  padding-left: 35px;
+  padding-left: 43px;
   text-align: center;
+}
+
+.ReloadPayment .recaptchaDiv .ErrorRecaptcha {
+  float: none;
+}
+
+.ReloadPayment .configAlert {
+  font-size: 14px;
 }
 
 .googleMap {

@@ -631,8 +631,16 @@ body, html{
 
 .ReloadPayment{
 	.recaptchaDiv{
-		padding-left:35px;
+		padding-left:43px;
 		text-align:center;
+
+		.ErrorRecaptcha{
+			float:none;
+		}
+	}
+
+	.configAlert{
+		font-size:14px;
 	}
 }
 

@@ -178,17 +178,18 @@
 
 						<div class="col-lg-12">
 							<br/>
-							<div class="alert alert-warning" >
+							<div class="alert alert-warning configAlert" >
 								Clicking on the PAY button below will trigger a payment that amounts to your reaload card selection. <br/> Please double check all the above information and make sure you have chosen your desired reload card!
 							</div>
 						</div>
 
-						<div class="col-lg-12">
-							<div class="offset-3 col-lg-4 recaptchaDiv">
+						<div class="col-lg-12 recaptchaDiv">
+							<div class="offset-3 col-lg-4 ">
 								{!! Recaptcha::render() !!}
 
-								<span class="Error ErrorRecaptcha"></span>
+								
 							</div>
+							<span class="Error ErrorRecaptcha"></span>
 						</div>
 						<div class="col-lg-12">
 							<div class="offset-2 col-lg-8">
