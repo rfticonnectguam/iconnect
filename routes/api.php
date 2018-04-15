@@ -36,9 +36,6 @@ Route::get('getNumberOfAvailableLTE3days','API\PrepaidController@getNumberOfAvai
 // get random card or item on a selected prepaid;
 Route::post('getRandomSelectedCard','API\PrepaidController@getRandomSelectedCard');
 
-// get random card or item on a selected prepaid;
-Route::post('prepaidPayment','API\PrepaidController@prepaidPayment');
-
 // get available card
 Route::get('getAvailableCard','API\PrepaidController@getAvailableCard');
 
