@@ -10,6 +10,9 @@ use Mapper;
 use Mail; //added mail function
 use App\Mail\ContactEmail;//added contact email
 
+use Exception;
+use DateTime;
+
 class ContactController extends Controller
 {
     /**
@@ -53,7 +56,8 @@ class ContactController extends Controller
                 $saveData = DB::table('contact_messages')->insert([
                         'Name' => $request->Name,
                         'Email' => $request->Email,
-                        'Message' => $request->Message
+                        'Message' => $request->Message,
+                        'created_at' => new DateTime(),
                     ]);
                
                  //send email to admin
@@ -128,6 +132,27 @@ class ContactController extends Controller
             'message' => 'Successfully validated', 
         ];
        
+    }
+
+    public function getAllContactMsg(){
+
+        try {
+            $StoreProc = DB::select("CALL getAllMsg()");
+
+            $payload = [
+                'status' => "SUCCESS",
+                'data' => $StoreProc,
+                'message' => 'Successfully getting all contact message',
+            ];
+
+        } catch (Exception $e) {
+            $payload = [
+                'status' => "ERROR",
+                'data' => $e,
+            ];
+        }
+        
+        return $payload;
     }
 
 }
