@@ -50,5 +50,8 @@ Route::post('generateToken','API\TokenController@checkToken');
 // this API is for successpayment 
 Route::get('/successpayment/{pin}/{serial}', 'API\PrepaidController@showImage')->name('showImage');
 
+//test route for stored procedure
+Route::post('/getmsg', 'ContactController@getMsgById');
+
 
 

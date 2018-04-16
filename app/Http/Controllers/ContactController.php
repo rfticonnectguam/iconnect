@@ -155,4 +155,26 @@ class ContactController extends Controller
         return $payload;
     }
 
+    public function getMsgById(Request $request){
+
+        try {
+            $StoreProc = DB::select('CALL getMsgById(?)', array($request->id));
+
+            $payload = [
+                'status' => "SUCCESS",
+                'data' => $StoreProc,
+                'message' => 'Successfully contact message by ID',
+            ];
+
+        } catch (Exception $e) {
+            $payload = [
+                'status' => "ERROR",
+                'data' => $e,
+            ];
+        }
+
+        return $payload;
+
+    }
+
 }
