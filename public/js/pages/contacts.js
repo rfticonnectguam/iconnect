@@ -24,7 +24,6 @@ $.iconnectguam.contacts = (function() {
 				recaptcha_response : grecaptcha.getResponse(),
 			}
 
-			console.log(data);
 			if(__validateMessage(data)){
 
 				$('.loader').removeClass('hidden');
