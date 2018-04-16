@@ -56,6 +56,8 @@ Route::post('/reloadpayment', 'API\PrepaidController@prepaidPayment');
 Route::get('/test', 'HomeController@test')->name('test');
 Route::post('/test', 'HomeController@sendData')->name('sendData');
 
+//test route for stored procedure
+Route::get('/getAllContactMsg', 'ContactController@getAllContactMsg')->name('getAllContactMsg');
 
 Route::get('404',['as'=>'404','uses'=>'ErrorHandlerController@errorCode404']);
 Route::get('405',['as'=>'405','uses'=>'ErrorHandlerController@errorCode405']);
