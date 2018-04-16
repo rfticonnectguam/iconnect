@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use Exception;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -324,9 +326,15 @@ class PrepaidController extends Controller
                                 ];
 
 
-                                Mail::send(new reloadSuccess($data));
-
-                                $payload =  $available_card;
+                                try {
+                                     Mail::send(new reloadSuccess($data));
+                                     $payload =  $available_card;
+                                } catch (Exception $e) {
+                                    $payload = [
+                                        'status' => 'FAILED',
+                                        'message' => $e, 
+                                    ];
+                                }
 
                             }else if($available_card['status'] == "FAILED"){
                                 
@@ -343,28 +351,33 @@ class PrepaidController extends Controller
                                     ]);
 
                                      //send email to the registered email 
-                                    Mail::send(new sendPaymentErrorEmail());
-
+                                 
                                     try {
 
-                                        $PendingLoad;
-                                        $array_data = [];
-                                       
-                                        $payload = [
-                                            'status' => 'SUCCESS',
-                                            'data' => $array_data,
-                                            'message' => 'Email has been sent to your email',
-                                        ];
-
+                                        Mail::send(new sendPaymentErrorEmail());
+                                        
+                                        try {
+                                            $PendingLoad;
+                                            $array_data = [];
+                                           
+                                            $payload = [
+                                                'status' => 'SUCCESS',
+                                                'data' => $array_data,
+                                                'message' => 'Email has been sent to your email',
+                                            ];
+                                        } catch (Exception $e) {
+                                            $payload = [
+                                                'status' => 'FAILED',
+                                                'message' => $e, 
+                                            ];
+                                        }
+   
                                     } catch (Exception $e) {
                                         $payload = [
                                             'status' => 'FAILED',
                                             'message' => $e, 
                                         ];
                                     }
-
-
-                                    
 
                                 } catch (Exception $e) {
                                     $payload = [
