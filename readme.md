@@ -1,7 +1,5 @@
 //TODO
 
-//Minified showing error message from backend on reload payment module
-
 //Implement logs
 
 //Page for reloadPayment send email
