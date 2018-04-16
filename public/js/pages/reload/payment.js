@@ -70,79 +70,35 @@ $.iconnectguam.reload.payment = (function() {
 
       }//end of if and else
 
+      var __showError = function(field,msg){
+         $('.Parent'+field).addClass("ErrorField");   
+         $('.Error'+field).html(msg);  
+      };
 
       //check if has an error
       if(status == "FAILED"){
         //show errors
         console.log("Failed on backend validation");
         console.log(data);
-        //TODO MINIFIED
-        if(typeof(data.data.Email) !== "undefined"){
-          $('.ParentEmail').addClass("ErrorField");   
-          $('.ErrorEmail').html(data.data.Email[0]);  
-        }
 
-        if(typeof(data.data.First_name) !== "undefined"){
-          $('.ParentFirst_name').addClass("ErrorField");   
-          $('.ErrorFirst_name').html(data.data.First_name[0]);  
-        }
+        typeof(data.data.Email) !== "undefined" ? __showError("Email",data.data.Email[0]) : "";
+        typeof(data.data.First_name) !== "undefined" ? __showError("First_name",data.data.First_name[0]) : "";
+        typeof(data.data.Last_name) !== "undefined" ? __showError("Last_name",data.data.Last_name[0]) : "";
+        typeof(data.data.CCNumber) !== "undefined" ? __showError("CCNumber",data.data.CCNumber[0]) : "";
+        typeof(data.data.CVV) !== "undefined" ? __showError("CVV",data.data.CVV[0]) : "";
+        typeof(data.data.Address) !== "undefined" ? __showError("Address",data.data.Address[0]) : "";
+        typeof(data.data.City) !== "undefined" ? __showError("City",data.data.City[0]) : "";
+        typeof(data.data.State) !== "undefined" ? __showError("State",data.data.State[0]) : "";
+        typeof(data.data.ZipCode) !== "undefined" ? __showError("ZipCode",data.data.ZipCode[0]) : "";
+        typeof(data.data.Country) !== "undefined" ? __showError("Country",data.data.Country[0]) : "";
+        typeof(data.data.Expiry_date) !== "undefined" ? __showError("Expiry_date",data.data.Expiry_date[0]) : "";
 
-        if(typeof(data.data.Last_name) !== "undefined"){
-          $('.ParentLast_name').addClass("ErrorField");   
-          $('.ErrorLast_name').html(data.data.Last_name[0]);  
-        }
-
-        if(typeof(data.data.Last_name) !== "undefined"){
-          $('.ParentLast_name').addClass("ErrorField");   
-          $('.ErrorLast_name').html(data.data.Last_name[0]);  
-        }
-
-        if(typeof(data.data.CCNumber) !== "undefined"){
-          $('.ParentCCNumber').addClass("ErrorField");   
-          $('.ErrorCCNumber').html(data.data.CCNumber[0]);  
-        }
-
-        if(typeof(data.data.CVV) !== "undefined"){
-          $('.ParentCVV').addClass("ErrorField");   
-          $('.ErrorCvv').html(data.data.CVV[0]);  
-        }
-
-        if(typeof(data.data.Address) !== "undefined"){
-          $('.ParentAddress').addClass("ErrorField");   
-          $('.ErrorAddress').html(data.data.Address[0]);  
-        }
-
-        if(typeof(data.data.City) !== "undefined"){
-          $('.ParentCity').addClass("ErrorField");   
-          $('.ErrorCity').html(data.data.City[0]);  
-        }
-
-        if(typeof(data.data.State) !== "undefined"){
-          $('.ParentState').addClass("ErrorField");   
-          $('.ErrorState').html(data.data.State[0]);  
-        }
-
-        if(typeof(data.data.ZipCode) !== "undefined"){
-          $('.ParentZipCode').addClass("ErrorField");   
-          $('.ErrorZipCode').html(data.data.ZipCode[0]);  
-        }
-
-        if(typeof(data.data.Country) !== "undefined"){
-          $('.ParentCountry').addClass("ErrorField");   
-          $('.ErrorCountry').html(data.data.Country[0]);  
-        }
-
-        if(typeof(data.data.Expiry_date) !== "undefined"){
-          $('.ParentExpiry_date').addClass("ErrorField");   
-          $('.ErrorExpiry_date').html(data.data.Expiry_date[0]);  
-        }
-        
       }else if(status == "ERROR"){
         //show error logs
         console.log($data);
       }//end of if and else
 
-
+     
 
       $('#Expiry_date').MonthPicker({ 
           Button: false,
@@ -194,94 +150,51 @@ $.iconnectguam.reload.payment = (function() {
           var Address = $.xcript.validateLength('',data.Address,5,50);
           var City = $.xcript.validateLength('',data.City,2,25);
           
-          if(First_name.status == false){
-              $('.ParentFirst_name').addClass("ErrorField");   
-              $('.ErrorFirst_name').html(First_name.message[0]);   
-              submit = false;
-          }
-
-          if(Last_name.status == false){
-              $('.ParentLast_name').addClass("ErrorField");   
-              $('.ErrorLast_name').html(Last_name.message[0]); 
-              submit = false;  
-          }
-
-          //TODO CREDIT CARD AND CCV
-
+          First_name.status == false ? (__showError('First_name',"Required"), submit=false) : "";
+          Last_name.status == false ? (__showError('Last_name',"Required"), submit=false) : "";
+              
+       
           var CCNumber = $.xcript.validateInputs(data.CCNumber);
           if(CCNumber == false){
-              $('.ParentCCNumber').addClass("ErrorField");   
-              $('.ErrorCCNumber').html("Required");  
+              __showError('CCNumber',"Required")
               submit = false; 
           }else{
 
               if($.xcript.validateCreditCard(data.CCNumber) == false){
-                  $('.ParentCCNumber').addClass("ErrorField");   
-                  $('.ErrorCCNumber').html("Invalid Credit Card Number");  
+                  __showError('CCNumber',"Invalid Credit Card Number")
                   submit = false; 
               }
           }
 
-           var CVV = $.xcript.validateInputs(data.CVV);
-          if(CVV == false){
-              $('.ParentCVV').addClass("ErrorField");   
-              $('.ErrorCVV').html("Required");  
-              submit = false; 
-          }
+          var CVV = $.xcript.validateInputs(data.CVV);
+          CVV == false ? (__showError('CVV',"Required"), submit=false) : "";
 
-          if(Address.status == false){
-              $('.ParentAddress').addClass("ErrorField");   
-              $('.ErrorAddress').html(Address.message[0]);  
-              submit = false; 
-          }
-
-           if(City.status == false){
-              $('.ParentCity').addClass("ErrorField");   
-              $('.ErrorCity').html(City.message[0]);  
-              submit = false; 
-          }
-
+          Address.status == false ? (__showError('Address',"Required"), submit=false) : "";
+          City.status == false ? (__showError('City',"Required"), submit=false) : "";
 
           var State = $.xcript.validateInputs(data.State);
-          if(State == false){
-              $('.ParentState').addClass("ErrorField");   
-              $('.ErrorState').html("Required");  
-              submit = false; 
-          }
-
+          State == false ? (__showError('State',"Required"), submit=false) : "";
+              
           var ZipCode = $.xcript.validateInputs(data.ZipCode);
-          if(ZipCode == false){
-              $('.ParentZipCode').addClass("ErrorField");   
-              $('.ErrorZipCode').html("Required");  
-              submit = false; 
-          }
+          ZipCode == false ? (__showError('ZipCode',"Required"), submit=false) : "";
+              
 
           var Country = $.xcript.validateInputs(data.Country);
-          if(Country == false){
-              $('.ParentCountry').addClass("ErrorField");   
-              $('.ErrorCountry').html("Required");  
-              submit = false; 
-          }
-
+          Country == false ? (__showError('Country',"Required"), submit=false) : "";
+              
           var Expiry_date = $.xcript.validateInputs(data.Expiry_date);
-          if(Expiry_date == false){
-              $('.ParentExpiry_date').addClass("ErrorField");   
-              $('.ErrorExpiry_date').html("Required");  
-              submit = false; 
-          }
-
+          Expiry_date == false ? (__showError('Expiry_date',"Required"), submit=false) : "";
+              
           //validate email
           var Email = $.xcript.validateInputs(data.Email);
           if(Email ==  false){
-               $('.ParentEmail').addClass("ErrorField");   
-               $('.ErrorEmail').html("Required");  
+               __showError('Email',"Required");
                submit = false; 
           }else{
              //validate email
                var Email = $.xcript.validateEmail(data.Email);
                if(Email == false){
-                  $('.ParentEmail').addClass("ErrorField");   
-                  $('.ErrorEmail').html("Invalid Email");  
+                  __showError('Email',"Invalid Email");
                   submit = false; 
                }
           }
