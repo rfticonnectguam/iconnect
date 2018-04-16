@@ -1347,6 +1347,102 @@ a.ui-button:active,
   float: none;
 }
 
+.swal-modal .swal-icon--success__line {
+  background-color: #f57c00;
+}
+
+.swal-modal .swal-icon--success__ring {
+  border: 4px solid #df8130;
+}
+
+.swal-modal .swal-button--confirm {
+  background-color: #f57c00;
+}
+
+.loader {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1022;
+  text-align: center;
+}
+
+.loader .lds-css {
+  position: fixed;
+  top: 35vh;
+  left: 43%;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 90px;
+    left: 90px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 15px;
+    left: 15px;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes lds-ripple {
+  0% {
+    top: 90px;
+    left: 90px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 15px;
+    left: 15px;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+
+.loader .lds-ripple {
+  position: relative;
+}
+
+.loader .lds-ripple div {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: absolute;
+  border-width: 10px;
+  border-style: solid;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-animation: lds-ripple 1.3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: lds-ripple 1.3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loader .lds-ripple div:nth-child(1) {
+  border-color: #f57c00;
+}
+
+.loader .lds-ripple div:nth-child(2) {
+  border-color: #f57c00;
+  -webkit-animation-delay: -0.65s;
+  animation-delay: -0.65s;
+}
+
+.loader .lds-ripple {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -11370,18 +11466,6 @@ html {
   cursor: pointer;
 }
 
-.swal-modal .swal-icon--success__line {
-  background-color: #f57c00;
-}
-
-.swal-modal .swal-icon--success__ring {
-  border: 4px solid #df8130;
-}
-
-.swal-modal .swal-button--confirm {
-  background-color: #f57c00;
-}
-
 .middleNav .navCollapseBtn .fa-bars {
   font-size: 40px;
   color: #f57c00;
@@ -11811,90 +11895,6 @@ html {
 
 .BuyloadDiv .ErrorChk {
   float: none;
-}
-
-.loader {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 1022;
-  text-align: center;
-}
-
-.loader .lds-css {
-  position: fixed;
-  top: 35vh;
-  left: 43%;
-}
-
-@keyframes lds-ripple {
-  0% {
-    top: 90px;
-    left: 90px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-
-  100% {
-    top: 15px;
-    left: 15px;
-    width: 150px;
-    height: 150px;
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes lds-ripple {
-  0% {
-    top: 90px;
-    left: 90px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-
-  100% {
-    top: 15px;
-    left: 15px;
-    width: 150px;
-    height: 150px;
-    opacity: 0;
-  }
-}
-
-.loader .lds-ripple {
-  position: relative;
-}
-
-.loader .lds-ripple div {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  position: absolute;
-  border-width: 10px;
-  border-style: solid;
-  opacity: 1;
-  border-radius: 50%;
-  -webkit-animation: lds-ripple 1.3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-  animation: lds-ripple 1.3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-
-.loader .lds-ripple div:nth-child(1) {
-  border-color: #f57c00;
-}
-
-.loader .lds-ripple div:nth-child(2) {
-  border-color: #f57c00;
-  -webkit-animation-delay: -0.65s;
-  animation-delay: -0.65s;
-}
-
-.loader .lds-ripple {
-  width: 200px !important;
-  height: 200px !important;
-  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
-  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }
 
 .ReloadPayment .recaptchaDiv {
