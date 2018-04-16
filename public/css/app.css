@@ -11929,3 +11929,15 @@ html {
   padding-left: 30px;
 }
 
+.ErrorPage {
+  text-align: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+.ErrorPage h1 {
+  color: #f57c00;
+  font-size: 70px;
+  font-weight: 800;
+}
+
