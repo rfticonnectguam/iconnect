@@ -8,12 +8,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>iConnectGuam | @yield('title')</title>
+    <link rel="favicon icon" href="{{ asset('images/favicon.ico') }}"">
 
     <!-- Styles -->
+    {{-- <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet"> --}}
+     <link href="{{ asset('css/Monthpicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <div class="loader">
+
+    <div class="lds-css ng-scope" style="width: 200px; height: 200px;"><div style="width:100%;height:100%" class="lds-ripple"><div></div><div></div></div>
+  </div>
+    {{-- <img src="{{ asset('images/Ripple-1.3s-200px.gif') }}"> --}}
+  </div>
   
     <nav class="navbar topNav">
         <div class="container">
@@ -305,8 +314,17 @@
 
      <script type="text/javascript" src="{{ asset('js/plugins/bootstrap.min.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/plugins/jquery.cookie.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/jquery-ui.min.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/MonthPicker.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/sweetalert.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/plugins/xcript-v1.0.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/service.js') }}"></script>
      <script type="text/javascript"  src="{{ asset('js/global.js') }}"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $.xcript.library();
+        });
+    </script>
     @section('script')
     @show
 </body>

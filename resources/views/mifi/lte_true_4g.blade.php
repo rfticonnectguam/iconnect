@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'LTE')
+
 @section('content')
 
 <div class="ShowLteTrue4g">

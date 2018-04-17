@@ -12,6 +12,9 @@ $bg-x1: #f57c00;
 $bg-x2: #fb8c00;
 $bg-darken: #e65100;
 
+.Capitalized{
+	text-transform: capitalize;
+}
 .solid{
 	font-weight:700;
 }
@@ -19,4 +22,25 @@ $bg-darken: #e65100;
 .Error{
 	font-size:12px;
 	color:red;
+	float: left;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.grayBG{
+	background-color:#eee;
+}
+
+.hidden{
+	display:none;
+}
+
+.ErrorField{
+	.form-control{
+		border : 1px solid red !important;
+	}
+}
+
+.ErrorselectReloadCard{
+	float:none;
 }

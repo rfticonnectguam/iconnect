@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Connect with us')
+
 @section('content')
 
 <div class="ContactPageDiv">
@@ -34,6 +36,7 @@
 			<br><br/>
 			</div>
 		</div>
+		
 		<div class="row">
 			<div class="col-md-4">
 				<img class="logo" src="{{ asset('images/iconnect-i.jpg') }}" >
@@ -56,47 +59,207 @@
 
 		</div>
 
-			<div class="row">
-				<div class="col-lg-12 messageHeader">
-					<br/><br/><br/>
-					<h1>CONTACT US</h1>
-					<br/>
-				</div>
+			@if(!empty($status))
+				<script>	
+					@if($status == "SUCCESS")
 
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="Enter Name">
-				</div>
+						var status = {!! json_encode($status) !!};
+				  		var message = {!! json_encode($message) !!};
 
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="Enter Email">
-				</div>
-				<br/><br/>
+						@if(!empty($data))
+							 var data = {!! json_encode($data) !!};
+						@else
+							var data = "";
+						@endif
 
-				<div class="col-md-12">
-					 <textarea class="form-control" rows="6" id="message" placeholder="Enter your message"></textarea>
-				</div>
+				  	@elseif($status == "FAILED")
 
-				<div class="offset-4 col-md-4">
+			  			var status = {!! json_encode($status) !!};
+				  		var message = {!! json_encode($message) !!};
+
+						@if(!empty($data))
+							 var data = {!! json_encode($data) !!};
+						@else
+							var data = "";
+						@endif
+					  
+				  	@else
+
+				  		 var status = {!! json_encode($status) !!};
+				  		 var message = {!! json_encode($message) !!};
+				  	
+				  	@endif
+				 </script>
+			@endif
+
+			<form id="submitMsg" method="post" action="contacts">
+				{{csrf_field()}}
+				<div class="row">
+					<div class="col-lg-12 messageHeader">
+						<br/><br/><br/>
+						<h1>CONTACT US</h1>
+						<br/>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group ParentName">
+						    <input type="text" class="form-control Capitalized" name="Name" id="Name" placeholder="Enter Name">
+							<span class="Error ErrorName"></span>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group ParentEmail">
+						    <input type="text" class="form-control" name="Email" id="Email" placeholder="Enter Email">
+							<span class="Error ErrorEmail"></span>
+						</div>
+					</div>
 					<br/><br/>
-					 <button id="" class="btn btn-block submitMsg">SUBMIT</button>
+
+					<div class="col-md-12">
+						<div class="form-group ParentMessage">
+						 <textarea class="form-control" rows="6" name="Message" id="Message" placeholder="Enter your message"></textarea>
+						 <span class="Error ErrorMessage"></span>
+						</div>
+					</div>
+
+					<div class="col-lg-12">
+						<div class="offset-4 col-lg-4 recaptchaContactDiv">
+							{!! Recaptcha::render() !!}
+							<span class="Error ErrorRecaptcha"></span>
+						</div>
+					</div>
+
+					<div class="offset-4 col-md-4">
+						<br/>
+						 <button id="sendMsg" class="btn btn-block submitMsg">SUBMIT</button>
+					</div>
+
 				</div>
-			</div>
+			</form>
+
+
 			<br/><br/>
 
 			
 		</div>{{-- container --}}
-
-		<div class="row">
-			<div class="container-fluid">
-				<div class="bigTitleheader">
-					<h1>CALL (671)888-8888</h1>
-					<h3>EMAIL INFORMATION@ICONNECTGUAM.COM</h3>
+		
+		<div class="container-fluid">
+			<div class="row callToAction">
+				<div class="col-lg-12">
+					<div class="bigTitleheader callToAction">
+						<h1>CALL (671)888-8888</h1>
+						<h3>EMAIL INFORMATION@ICONNECTGUAM.COM</h3>
+					</div>
 				</div>
 			</div>
 		</div>
 
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 googleMap no-space">
+					{!! Mapper::render() !!}
+				</div>
+
+				<div class="col-lg-6 ">
+					<div class="row">
+						<div class="col-lg-12 OfficeInfo">
+							<br>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 grayBG OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+							
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+								
+							</small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 grayBG OfficeInfo">
+							<br/>
+							<strong>Main Office Upper Tumon/Tamuning</strong>
+
+							<small>
+							<br/>
+								543A Top-Plaza Building, North Marine Drive, Tamuning
+								<br/>
+								Across Department of Public Works/Upper Tumon)
+								<br/>
+								Telephone number: 671-888-8888
+								<br/>
+								Open from Monday- Friday: 9AM - 6PM
+								<br/>
+								Saturday and Sunday: CLOSED
+								<br/>
+								CLOSED ON FEDERAL AND CERTAIN GOVERNMENT OF GUAM HOLIDAYS
+							</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+
 	</div>
+
+	
 </div>
+
 		
 		
 

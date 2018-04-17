@@ -25,22 +25,44 @@ class Prepaid_5sController extends Controller
     public function getAllPrepaid5(){
 
         //get all prepaid
-        $prepaid_data = Prepaid_5::all();
-        
+        try{
+
+            $prepaid_data = Prepaid_5::all();
+
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
+
         //call resource collection
         $payload = Prepaid_5Resource::collection($prepaid_data);      
-          
-          return [
-                'status' => 'OK',
-                'data' => $payload,
-                'message' => 'Succesfully getting all data', 
-            ];
+              
+        return [
+            'status' => 'OK',
+            'data' => $payload,
+            'message' => 'Succesfully getting all data', 
+        ];
+        
+        
+        
     }
 
     public function getAllAvailablePrepaid5(){
 
         //get all available prepaid 5
-        $prepaid_data = Prepaid_5::where('availability', 0)->get();
+
+        try{
+            
+            $prepaid_data = Prepaid_5::where('availability', 0)->get();
+
+        } catch (Exception $e) {
+            return [
+                'status' => 'FAILED',
+                'message' => $e, 
+            ];
+        }
 
         if(count($prepaid_data) > 0){
             //available
@@ -60,6 +82,8 @@ class Prepaid_5sController extends Controller
                 'message' => 'No Available Prepaid 5', 
             ];
         }
+
+
        
     }
 

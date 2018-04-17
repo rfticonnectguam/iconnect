@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'My Mobile')
+
 @section('content')
 
 <div class="MyMobileDiv">
