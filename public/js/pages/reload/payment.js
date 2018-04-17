@@ -216,7 +216,7 @@ $.iconnectguam.reload.payment = (function() {
           //validate recaptcha
           var response = grecaptcha.getResponse();
           if(response.length == 0){
-              //submit = false;
+              submit = false;
               console.log("false");
               $('.ErrorRecaptcha').html("This captcha is required.");
 
