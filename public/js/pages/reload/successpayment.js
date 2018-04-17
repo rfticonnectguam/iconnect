@@ -26,7 +26,7 @@ $.iconnectguam.success.payment = (function() {
           $('#serial').html(serial);
 
       }else{
-        window.location.href ='/reload';//go to reload page
+        window.location.href = base_url+'/reload';//go to reload page
       }
 
 	};
