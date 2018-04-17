@@ -12,8 +12,8 @@ $.iconnectguam.reload.payment = (function() {
 
   var __attachedEvents = function(){
 
-      let base_url = 'http://34.217.45.230/reygie/iconnect/';
-      
+      let base_url = 'http://34.217.45.230/reygie/iconnect';
+
       console.log("attached events on reload page");
 
       // check if cookie is exist
