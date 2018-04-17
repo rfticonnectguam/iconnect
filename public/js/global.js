@@ -8,6 +8,11 @@ $( document ).ready(function() {
 
 	var __library = function(){
 
+		//for test server
+		//let activeUrl = 'http://34.217.45.230/reygie/iconnect/';
+
+		//for local
+		let activeUrl = '';
 		//add active class when page load;		
 		let url = window.location.pathname.split( '/' );
 		$('.NavItem').removeClass('active');
@@ -24,32 +29,32 @@ $( document ).ready(function() {
 		//attached events on buttons;
 		$('#goToHomePage').on('click',function(){
 			console.log("go to home page");
-			window.location.href = '/';
+			window.location.href = activeUrl+'/';
 		});
 		
 		$('#goToEventsPage').on('click',function(){
 			console.log("go to events page");
-			window.location.href = '/events';
+			window.location.href = activeUrl+'/events';
 		});
 
 		$('#goToContactsPage').on('click',function(){
 			console.log("go to contacts page");
 			//todo
-			window.location.href = '/contacts';
+			window.location.href = activeUrl+'/contacts';
 		});
 
 		$('#buyLoad').on('click',function(){
-			window.location.href = '/reload';
+			window.location.href = activeUrl+'/reload';
 		});
 
 		$('#goToMobileAcount').on('click',function(){
 			console.log("go to mobile account login page");
-			window.location.href = '/mymobile';
+			window.location.href = activeUrl+'/mymobile';
 		});
 
 		$('#goToLTEAccount').on('click',function(){
 			console.log("go to LTE Account login page page");
-			window.location.href = '/mylte';
+			window.location.href = activeUrl+'/mylte';
 		});
 
 		//attached event for show dropdown on nav
