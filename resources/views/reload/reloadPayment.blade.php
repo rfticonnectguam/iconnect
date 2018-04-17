@@ -78,7 +78,7 @@
 					@endif	
 				</script>
 
-				<form id="paymentForm" action="/reloadpayment" method="post">
+				<form id="paymentForm" action="{{url('reloadpayment')}}" method="post">
 					{{ csrf_field() }}
 					<input type="hidden" id="Card_type" name="Card_type">
 					<div class="row">
