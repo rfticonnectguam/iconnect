@@ -9,12 +9,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>iConnectGuam | @yield('title')</title>
-    <link rel="favicon icon" href="{{ asset('images/favicon.ico') }}"">
+    <link rel="favicon icon" href="{{ url('images/favicon.ico') }}"">
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet"> --}}
-     <link href="{{ asset('css/Monthpicker.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ url('css/Monthpicker.css') }}" rel="stylesheet">
+    <link href="{{ url('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
   <div class="loader">
@@ -36,7 +36,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light middleNav">
       <div class="container">
         <a href="/">
-          <img class="HeaderLogo" src="{{ asset('images/iconnect-logo.png') }}" >
+          <img class="HeaderLogo" src="{{ url('images/iconnect-logo.png') }}" >
         </a>
          {{--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,17 +52,17 @@
             <ul class="navbar-nav ml-auto">
               
               <li class="nav-item">
-                <a class="nav-link" id="goToMobileAcount">MY MOBILE ACCOUNT</a>
+                <a  href="{{url('/mymobile')}}" class="nav-link" >MY MOBILE ACCOUNT</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link " id="goToLTEAccount">MY LTE ACCOUNT</a>
+                <a class="nav-link " href="{{url('/mylte')}}" >MY LTE ACCOUNT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " id="goToContactsPage">CONNECT WITH US</a>
+                <a class="nav-link " href="{{url('/contacts')}}" >CONNECT WITH US</a>
               </li>
               <li class="nav-item ">
-                <button class="btn BuyLoadBtn" id="buyLoad"> BUY LOAD</button>
+                <a class="btn BuyLoadBtn" href="{{url('/reload')}}" > BUY LOAD</a>
               </li>
             </ul>
             
@@ -309,17 +309,17 @@
     </div>
 
     <!-- script -->
-     <script type="text/javascript"  src="{{ asset('js/plugins/fontawesome-5-0-9.js') }}"></script>
-     <script type="text/javascript"  src="{{ asset('js/plugins/jquery.js') }}"></script>
+     <script type="text/javascript"  src="{{ url('js/plugins/fontawesome-5-0-9.js') }}"></script>
+     <script type="text/javascript"  src="{{ url('js/plugins/jquery.js') }}"></script>
 
-     <script type="text/javascript" src="{{ asset('js/plugins/bootstrap.min.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/plugins/jquery.cookie.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/plugins/jquery-ui.min.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/plugins/MonthPicker.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/plugins/sweetalert.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/plugins/xcript-v1.0.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('js/service.js') }}"></script>
-     <script type="text/javascript"  src="{{ asset('js/global.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/jquery.cookie.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/jquery-ui.min.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/MonthPicker.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/sweetalert.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/plugins/xcript-v1.0.js') }}"></script>
+     <script type="text/javascript" src="{{ url('js/service.js') }}"></script>
+     <script type="text/javascript"  src="{{ url('js/global.js') }}"></script>
       <script type="text/javascript">
         $(document).ready(function() {
             $.xcript.library();
