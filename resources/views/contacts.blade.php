@@ -92,7 +92,7 @@
 				 </script>
 			@endif
 
-			<form id="submitMsg" method="post" action="contacts">
+			<form id="submitMsg" method="post" action="{{url('contacts')}}">
 				{{csrf_field()}}
 				<div class="row">
 					<div class="col-lg-12 messageHeader">
