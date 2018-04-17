@@ -15,8 +15,6 @@ $( document ).ready(function() {
 		let url = window.location.pathname.split( '/' );
 		$('.NavItem').removeClass('active');
 		$('.loader').addClass('hidden');
-		
-		console.log(url);
 
 		if(url[1] == 'mymobile'){
 			$('.myMobile').addClass('active');
