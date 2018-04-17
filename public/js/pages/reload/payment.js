@@ -25,7 +25,7 @@ $.iconnectguam.reload.payment = (function() {
 
       //check if cards is exist
       if(!validCard.includes($.cookie('selectedCard'))){
-         window.location.href ='/reload';//go to reload page
+         window.location.href = baseUrl+'/reload';//go to reload page
       }else{
 
         //check if has available card
@@ -37,7 +37,7 @@ $.iconnectguam.reload.payment = (function() {
                       
                       if(index == $.cookie('selectedCard')){
                           if(val != 1){
-                              window.location.href ='/reload';//go to reload page
+                              window.location.href = baseUrl+'/reload';//go to reload page
                           }
                       }
                   });

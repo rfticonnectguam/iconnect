@@ -8,6 +8,9 @@ $( document ).ready(function() {
 
 	var __library = function(){
 
+		let base_url = 'http://34.217.45.230/reygie/iconnect/';
+		//let base_url = window.location.origin;
+
 		//add active class when page load;		
 		let url = window.location.pathname.split( '/' );
 		$('.NavItem').removeClass('active');
