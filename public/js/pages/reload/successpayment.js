@@ -12,6 +12,8 @@ $.iconnectguam.success.payment = (function() {
 
 	var __attachedEvents = function(){
 
+      let base_url = 'http://34.217.45.230/reygie/iconnect/';
+      
   		console.log("attached events on success payment page");
 
       if(status =="SUCCESS"){
