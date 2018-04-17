@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "28da1bef-e682-4749-898b-3528584616f5",
+		"name": "IconnectGuam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"description": "",
+			"item": [
+				{
+					"name": "generateToken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/generateToken",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"generateToken"
+							]
+						},
+						"description": "This API is for generating token"
+					},
+					"response": []
+				},
+				{
+					"name": "validateToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\" : \"YicBsV4ZYpMtimdH1zCNkYUOb\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/generateToken",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"generateToken"
+							]
+						},
+						"description": "This API is for validating token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prepaid",
+			"description": "",
+			"item": [
+				{
+					"name": "getNumberOfAvailablePrepaid5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getNumberOfAvailablePrepaid5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getNumberOfAvailablePrepaid5"
+							]
+						},
+						"description": "This API is for getting number of available Prepaid 5"
+					},
+					"response": []
+				},
+				{
+					"name": "getNumberOfAvailablePrepaid10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getNumberOfAvailablePrepaid10",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getNumberOfAvailablePrepaid10"
+							]
+						},
+						"description": "This API is for getting the number of available Prepaid 10"
+					},
+					"response": []
+				},
+				{
+					"name": "getNumberOfAvailableLTE3days",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getNumberOfAvailableLTE3days",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getNumberOfAvailableLTE3days"
+							]
+						},
+						"description": "This API is for getting number of available LTE 3 days"
+					},
+					"response": []
+				},
+				{
+					"name": "getRandomSelectedCard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Card_type\": \"Lte_3_days\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/getRandomSelectedCard",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getRandomSelectedCard"
+							]
+						},
+						"description": "This API is for getting a random selected card"
+					},
+					"response": []
+				},
+				{
+					"name": "prepaidPayment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\" : \"reygie.tarroquin@gmail.com\",\n\t\"First_name\" : \"reygie\",\n\t\"Last_name\" : \"tarroquin\",\n\t\"CCNumber\" : \"6011111111111117\", \n\t\"CVV\" : \"67896\",\n\t\"Address\" : \"Lorem ipsum dolor semete\",\n\t\"City\" : \"Marikina\",\n\t\"ZipCode\" : \"1111\",\n\t\"Country\" : \"Philippines\",\n\t\"Expiry_date\" : \"05/04/15\",\n\t\"Card_type\":\"Lte_3_days\"\n}\n"
+						},
+						"url": {
+							"raw": "localhost:8000/api/prepaidPayment",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"prepaidPayment"
+							]
+						},
+						"description": "This API is for validating payment"
+					},
+					"response": []
+				},
+				{
+					"name": "getAvailableCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getAvailableCard",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getAvailableCard"
+							]
+						},
+						"description": "This API is fot getting available card promo"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prepaid_5",
+			"description": null,
+			"item": [
+				{
+					"name": "getAllPrepaid5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getAllPrepaid5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getAllPrepaid5"
+							]
+						},
+						"description": "This API is for fetching all Prepaid 5 data"
+					},
+					"response": [
+						{
+							"id": "7763f51a-9620-462a-94e5-610b53227b5c",
+							"name": "getAllPrepaid5",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "localhost:8000/api/getAllPrepaid5",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"getAllPrepaid5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Apr 2018 01:15:44 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Apr 2018 01:15:44 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.7",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"body": "{\"status\":\"OK\",\"data\":[{\"id\":1,\"serial_number\":913438,\"pin\":\"qohSSft9mI\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":2,\"serial_number\":508365,\"pin\":\"tzqRhfECvk\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":3,\"serial_number\":842596,\"pin\":\"9h2lnatpLZ\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":4,\"serial_number\":623399,\"pin\":\"ammRNSbZKQ\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":5,\"serial_number\":469955,\"pin\":\"dCiQkyw9yS\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":6,\"serial_number\":386271,\"pin\":\"8BvXbX6xr0\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":7,\"serial_number\":843565,\"pin\":\"xBjO3TzF9k\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":8,\"serial_number\":173211,\"pin\":\"n3YK1FZhqk\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":9,\"serial_number\":424243,\"pin\":\"DWpdmtQSeN\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}},{\"id\":10,\"serial_number\":242855,\"pin\":\"rYIiyaijmM\",\"availability\":\"0\",\"purchased_date\":null,\"email\":null,\"created_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"},\"updated_at\":{\"date\":\"2018-04-04 00:31:28.000000\",\"timezone_type\":3,\"timezone\":\"UTC\"}}],\"messages\":\"Succesfully getting all data\"}"
+						}
+					]
+				},
+				{
+					"name": "getAllAvailablePrepaid5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/getAllAvailablePrepaid5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getAllAvailablePrepaid5"
+							]
+						},
+						"description": "This API is for getting all available Prepaid 5"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

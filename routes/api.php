@@ -36,9 +36,22 @@ Route::get('getNumberOfAvailableLTE3days','API\PrepaidController@getNumberOfAvai
 // get random card or item on a selected prepaid;
 Route::post('getRandomSelectedCard','API\PrepaidController@getRandomSelectedCard');
 
-// get random card or item on a selected prepaid;
-Route::post('prepaidPayment','API\PrepaidController@prepaidPayment');
-
 // get available card
 Route::get('getAvailableCard','API\PrepaidController@getAvailableCard');
+
+
+
+// this API is for generating token
+Route::get('generateToken','API\TokenController@generateToken');
+
+// this API is for checking token
+Route::post('generateToken','API\TokenController@checkToken');
+
+// this API is for successpayment 
+Route::get('/successpayment/{pin}/{serial}', 'API\PrepaidController@showImage')->name('showImage');
+
+//test route for stored procedure
+Route::post('/getmsg', 'ContactController@getMsgById');
+
+
 

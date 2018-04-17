@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'iPhone X')
+
 @section('content')
 
 <div class="BuyIphoneXPage">

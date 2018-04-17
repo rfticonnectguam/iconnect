@@ -53,4 +53,28 @@ class HomeController extends Controller
     public function reloadpayment(){
         return view('reload.reloadPayment');
     }
+
+    public function successpayment(){
+        return view('reload.successReload');
+    }
+
+    public function test(){
+
+         return view('test');
+    }
+
+    public function sendData(Request $request){
+       
+        $payload['username'] = $request->username;
+        $payload['password'] = $request->password;
+
+        $data = [
+            'status'=>'SUCCESS',
+            'data'=>$payload,
+            'message'=>'Successfully getting data',
+            ];
+        return view('test')->with($data);
+    }
+
+    
 }

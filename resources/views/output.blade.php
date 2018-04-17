@@ -2,6 +2,13 @@
 
 @section('content')
 
+@if(!empty($status))
+	@if ($status === "SUCCESS")
+	   <p>{{ var_dump($data) }}</p>
+	@else
+	    I don't have any records!
+	@endif
+@endif
 
 @endsection
 
@@ -10,7 +17,6 @@
    <script type="text/javascript">
         $(document).ready(function() {
             $.global.library();
-            $.iconnectguam.events.attachedEvents();
         });
     </script>
 @endsection

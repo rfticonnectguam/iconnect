@@ -15,7 +15,7 @@ $.service = (function() {
 
 	    var __executePost = function (path,data) {
 
-	    	$('.loader').removeClass('hidden');
+	    	//$('.loader').removeClass('hidden');
 
 			var dfd = $.Deferred();
 			$.ajax({
@@ -25,7 +25,7 @@ $.service = (function() {
 			})
 			.done(function(data){
 				dfd.resolve(data);
-				$('.loader').addClass('hidden');
+				//$('.loader').addClass('hidden');
 			})
 			.fail(function(qXHR, textStatus, errorThrown){
 				dfd.resolve({
@@ -62,13 +62,13 @@ $.service = (function() {
 
 		var __executeGet = function (path) {
 
-			$('.loader').removeClass('hidden');
+			//$('.loader').removeClass('hidden');
 
 			var dfd = $.Deferred();
 			$.get(path, function(data) {})
 			.done(function(data){
 				dfd.resolve(data);
-				$('.loader').addClass('hidden');
+				//$('.loader').addClass('hidden');
 			})
 			.fail(function(qXHR, textStatus, errorThrown){
 				dfd.resolve({

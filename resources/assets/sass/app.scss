@@ -2,15 +2,26 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
+@import 'plugins/jquery-ui/jquery-ui.css';//home jquery-ui
+//@import '~jquery-ui/themes/base/all.css';//work jquery-ui
+
+//@ import variables and components
 @import "variables";
+@import 'components';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'plugins/bootstrap-4.0.0';
+//@import '~bootstrap/scss/bootstrap';
+
+
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.swal-footer{
+	text-align:center;
 }
 
 body, html{
@@ -33,6 +44,7 @@ body, html{
 	cursor:pointer;
 }
 
+
 .middleNav{
 
 	.navCollapseBtn{
@@ -54,7 +66,6 @@ body, html{
 }
 
 .navbar{
-		
 
 		&.navBottom{
 			background-color:$bg-x1;
@@ -62,25 +73,10 @@ body, html{
 
 			ul{
 				li{
-					// &.active{
-					// 	border-color:$bg-x1;
-					// 	a{
-					// 		color:$bg-x1 !important;
-					// 	}
-					// }
 
 					font-size:12px;
 					font-weight:800;
 					margin-right:10px;
-
-					// &:hover{
-					// 	border-color:$bg-x1;
-					// 	a{
-					// 		cursor:pointer;
-					// 		color:$bg-x1 !important;
-					// 	}
-						
-					// }
 
 					.nav-link{
 						color:#fff !important;
@@ -244,7 +240,6 @@ body, html{
 	h4{
 		color:$bg-x1;
 	}
-	padding-bottom:100px;
 	padding-top:50px;
 	.messageHeader{
 		text-align:center;
@@ -260,6 +255,16 @@ body, html{
 	.submitMsg{
 		background-color:$bg-x1;
 		color:#fff;
+	}
+
+	.recaptchaContactDiv{
+		padding-left:36px;
+	}
+
+	.callToAction{
+		background-color:#eee;
+		padding-top:50px;
+		padding-bottom:50px;
 	}
 }
 
@@ -482,6 +487,10 @@ body, html{
 		
 		
 	}
+
+	.Error{
+		float:none;
+	}
 	
 }
 
@@ -513,8 +522,60 @@ body, html{
 		width:200px;
 		padding-top:10px;
 	}
+
+	.ErrorChk{
+		float:none;
+	}
 }
 
+
+.ReloadPayment{
+	.recaptchaDiv{
+		padding-left:43px;
+		text-align:center;
+
+		.ErrorRecaptcha{
+			float:none;
+		}
+	}
+
+	.configAlert{
+		font-size:14px;
+	}
+}
+
+.googleMap{
+	height:inherit;
+	width:500px;
+}
+
+.no-space{
+	padding:0;
+	margin:0;
+}
+
+.gMapOfficeDetails{
+	padding-left:10px;
+
+}
+
+.OfficeInfo{
+	padding-bottom:20px;
+	padding-left:30px;
+}
+
+.ErrorPage{
+	text-align:center;
+	padding-bottom:100px;
+	padding-top:100px;
+
+	h1{
+		color:$bg-x1;
+		font-size: 70px;
+    	font-weight: 800;
+	}
+
+}
 
 
 
