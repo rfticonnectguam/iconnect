@@ -11475,6 +11475,10 @@ html {
   color: #f57c00 !important;
 }
 
+.navbar #navbarSupportedContent .active {
+  color: #f57c00;
+}
+
 .navbar.navBottom {
   background-color: #f57c00;
   padding: 0px !important;

@@ -16,12 +16,14 @@ $( document ).ready(function() {
 		$('.NavItem').removeClass('active');
 		$('.loader').addClass('hidden');
 		
-		if(url[1] == ''){
-			$('.NavLinkHomePage').addClass('active');
-		}else if(url[1] == 'events'){
-			$('.NavLinkEventsPage').addClass('active');
+		console.log(url);
+
+		if(url[1] == 'mymobile'){
+			$('.myMobile').addClass('active');
+		}else if(url[1] == 'mylte'){
+			$('.myLTE').addClass('active');
 		}else if(url[1] == 'contacts'){
-			$('.NavLinkContactsPage').addClass('active');
+			$('.connectWithUs').addClass('active');
 		}
 
 		//attached events on buttons;

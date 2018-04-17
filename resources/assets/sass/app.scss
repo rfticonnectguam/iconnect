@@ -67,6 +67,12 @@ body, html{
 
 .navbar{
 
+		#navbarSupportedContent{
+			.active{
+				color:#f57c00;
+			}
+		}
+		
 		&.navBottom{
 			background-color:$bg-x1;
 			padding:0px!important;
