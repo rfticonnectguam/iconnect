@@ -52,17 +52,17 @@
             <ul class="navbar-nav ml-auto">
               
               <li class="nav-item">
-                <a class="nav-link" id="goToMobileAcount">MY MOBILE ACCOUNT</a>
+                <a  href="{{url('/mymobile')}}" class="nav-link" >MY MOBILE ACCOUNT</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link " id="goToLTEAccount">MY LTE ACCOUNT</a>
+                <a class="nav-link " href="{{url('/mylte')}}" >MY LTE ACCOUNT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " id="goToContactsPage">CONNECT WITH US</a>
+                <a class="nav-link " href="{{url('/contacts')}}" >CONNECT WITH US</a>
               </li>
               <li class="nav-item ">
-                <button class="btn BuyLoadBtn" id="buyLoad"> BUY LOAD</button>
+                <button class="btn BuyLoadBtn" href="{{url('/reload')}}" > BUY LOAD</button>
               </li>
             </ul>
             
