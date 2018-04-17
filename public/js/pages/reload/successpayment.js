@@ -19,7 +19,7 @@ $.iconnectguam.success.payment = (function() {
           var pin = data[0].pin;
           var serial = data[0].serial_number;
 
-          var base_url = window.location.origin ;
+          //var base_url = window.location.origin ;
           $('#generateCard').attr("src",base_url+"/api/successpayment/"+pin+"/"+serial);
 
           $('#pin').html(pin);

@@ -89,7 +89,7 @@ $.iconnectguam.reload = (function() {
                                 $.cookie("selectedCard", $('#selectReloadCard').val(), { expires : 1 });
                                 
                                 //console.log($.cookie('selectedCard'));
-                                window.location.href = '/reloadpayment';//page redirect
+                                window.location.href = baseUrl+'/reloadpayment';//page redirect
 
                             }else{
                                $('.ErrorselectReloadCard').html("This is not available. Please select other service");
