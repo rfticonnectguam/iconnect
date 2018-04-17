@@ -62,7 +62,7 @@
                 <a class="nav-link " href="{{url('/contacts')}}" >CONNECT WITH US</a>
               </li>
               <li class="nav-item ">
-                <button class="btn BuyLoadBtn" href="{{url('/reload')}}" > BUY LOAD</button>
+                <a class="btn BuyLoadBtn" href="{{url('/reload')}}" > BUY LOAD</a>
               </li>
             </ul>
             
