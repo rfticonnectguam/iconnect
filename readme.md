@@ -1,7 +1,5 @@
 //TODO
 
-//Implement country seeder
-
 //File upload then try on server
 
 //Implement logs
