@@ -12,7 +12,8 @@ $.iconnectguam.reload.payment = (function() {
 
   var __attachedEvents = function(){
 
-      let base_url = 'http://34.217.45.230/reygie/iconnect';
+      //let base_url = 'http://34.217.45.230/reygie/iconnect';
+      let base_url = window.location.origin;
 
       console.log("attached events on reload page");
 
@@ -29,7 +30,7 @@ $.iconnectguam.reload.payment = (function() {
       if(!validCard.includes($.cookie('selectedCard'))){
          window.location.href = base_url+'/reload';//go to reload page
       }else{
-
+        
         //check if has available card
           $.service.executeGet('api/getAvailableCard').done(function (result) {
               
@@ -69,6 +70,20 @@ $.iconnectguam.reload.payment = (function() {
                                 " there realod cards are not applicable for your SIM");
           }
 
+          //get all list of countries
+          $.service.executeGet('api/getAllCountries').done(function (result) {
+
+              if(result.status == "SUCCESS"){
+                  //clean up
+                  $('#Country').empty();
+                  $.each(result.data,function(i,val){
+                      $('#Country').append(" <option value="+val.value+" selected>"+val.name+"</option>");
+                  });
+                  $('#Country').append(" <option value='0' selected>--Select Country--</option>");
+              }else{
+                  console.log("failed to get list of countries");
+              }
+          });
 
       }//end of if and else
 

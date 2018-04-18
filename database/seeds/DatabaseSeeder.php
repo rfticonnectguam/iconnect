@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Prepaid_5sTableSeeder::class);
         $this->call(Prepaid_10sTableSeeder::class);
         $this->call(Lte_3_daysTableSeeder::class);
+        $this->call(CountriesTableSeeder::class);
         
     }
 }
