@@ -16,7 +16,7 @@
 	 
 	                <div class="card-body">
 
-						 <form action="/" method="post" enctype="multipart/form-data">
+						 <form action="{{url('/')}}" method="post" enctype="multipart/form-data">
 				            @csrf
 				            <div class="form-group">
 				                <input type="file" class="form-control" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
