@@ -8,49 +8,52 @@ $( document ).ready(function() {
 
 	var __library = function(){
 
+		let base_url = 'http://34.217.45.230/reygie/iconnect';
+		//let base_url = window.location.origin;
+
 		//add active class when page load;		
 		let url = window.location.pathname.split( '/' );
 		$('.NavItem').removeClass('active');
 		$('.loader').addClass('hidden');
-		
-		if(url[1] == ''){
-			$('.NavLinkHomePage').addClass('active');
-		}else if(url[1] == 'events'){
-			$('.NavLinkEventsPage').addClass('active');
+
+		if(url[1] == 'mymobile'){
+			$('.myMobile').addClass('active');
+		}else if(url[1] == 'mylte'){
+			$('.myLTE').addClass('active');
 		}else if(url[1] == 'contacts'){
-			$('.NavLinkContactsPage').addClass('active');
+			$('.connectWithUs').addClass('active');
 		}
 
 		//attached events on buttons;
-		$('#goToHomePage').on('click',function(){
-			console.log("go to home page");
-			window.location.href = '/';
-		});
+		// $('#goToHomePage').on('click',function(){
+		// 	console.log("go to home page");
+		// 	window.location.href = activeUrl+'/';
+		// });
 		
-		$('#goToEventsPage').on('click',function(){
-			console.log("go to events page");
-			window.location.href = '/events';
-		});
+		// $('#goToEventsPage').on('click',function(){
+		// 	console.log("go to events page");
+		// 	window.location.href = activeUrl+'/events';
+		// });
 
-		$('#goToContactsPage').on('click',function(){
-			console.log("go to contacts page");
-			//todo
-			window.location.href = '/contacts';
-		});
+		// $('#goToContactsPage').on('click',function(){
+		// 	console.log("go to contacts page");
+		// 	//todo
+		// 	window.location.href = activeUrl+'/contacts';
+		// });
 
-		$('#buyLoad').on('click',function(){
-			window.location.href = '/reload';
-		});
+		// $('#buyLoad').on('click',function(){
+		// 	window.location.href = activeUrl+'/reload';
+		// });
 
-		$('#goToMobileAcount').on('click',function(){
-			console.log("go to mobile account login page");
-			window.location.href = '/mymobile';
-		});
+		// $('#goToMobileAcount').on('click',function(){
+		// 	console.log("go to mobile account login page");
+		// 	window.location.href = activeUrl+'/mymobile';
+		// });
 
-		$('#goToLTEAccount').on('click',function(){
-			console.log("go to LTE Account login page page");
-			window.location.href = '/mylte';
-		});
+		// $('#goToLTEAccount').on('click',function(){
+		// 	console.log("go to LTE Account login page page");
+		// 	window.location.href = activeUrl+'/mylte';
+		// });
 
 		//attached event for show dropdown on nav
 		$('.dropdown-toggle').on('mouseenter click',function(){

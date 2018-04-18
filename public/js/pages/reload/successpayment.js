@@ -12,6 +12,8 @@ $.iconnectguam.success.payment = (function() {
 
 	var __attachedEvents = function(){
 
+      let base_url = 'http://34.217.45.230/reygie/iconnect';
+      
   		console.log("attached events on success payment page");
 
       if(status =="SUCCESS"){
@@ -19,14 +21,14 @@ $.iconnectguam.success.payment = (function() {
           var pin = data[0].pin;
           var serial = data[0].serial_number;
 
-          var base_url = window.location.origin ;
+          //var base_url = window.location.origin ;
           $('#generateCard').attr("src",base_url+"/api/successpayment/"+pin+"/"+serial);
 
           $('#pin').html(pin);
           $('#serial').html(serial);
 
       }else{
-        window.location.href ='/reload';//go to reload page
+        window.location.href = base_url+'/reload';//go to reload page
       }
 
 	};

@@ -78,7 +78,7 @@
 					@endif	
 				</script>
 
-				<form id="paymentForm" action="/reloadpayment" method="post">
+				<form id="paymentForm" action="{{url('reloadpayment')}}" method="post">
 					{{ csrf_field() }}
 					<input type="hidden" id="Card_type" name="Card_type">
 					<div class="row">
@@ -149,7 +149,10 @@
 								</div>
 
 								<div class="form-group ParentCountry">
-								    <input type="text" name="Country" class="form-control Capitalized" id="Country" placeholder="Country">
+
+									 <select name="Country" class="form-control" id="Country">
+								      	<option value="0" selected>Country</option>
+								    </select>
 									<span class="Error ErrorCountry"></span>
 								</div>
 

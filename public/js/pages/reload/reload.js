@@ -11,6 +11,9 @@ $.iconnectguam.reload = (function() {
 
 	var __attachedEvents = function(){
 
+      let base_url = 'http://34.217.45.230/reygie/iconnect';
+      //let base_url = window.location.origin;
+
 	   	//remove existing cookie
 	    $.removeCookie("selectedCard");
 
@@ -89,7 +92,7 @@ $.iconnectguam.reload = (function() {
                                 $.cookie("selectedCard", $('#selectReloadCard').val(), { expires : 1 });
                                 
                                 //console.log($.cookie('selectedCard'));
-                                window.location.href = '/reloadpayment';//page redirect
+                                window.location.href = base_url+'/reloadpayment';//page redirect
 
                             }else{
                                $('.ErrorselectReloadCard').html("This is not available. Please select other service");
