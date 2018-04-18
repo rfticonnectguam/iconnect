@@ -85,8 +85,10 @@ class HomeController extends Controller
         $fileName = "avatar".time().'.'.request()->fileToUpload->getClientOriginalExtension();
         
         $request->fileToUpload->storeAs('logos',$fileName);
-    
-        return 'ok';
+        
+        //save to database
+
+        return $fileName;
 
     }
     
