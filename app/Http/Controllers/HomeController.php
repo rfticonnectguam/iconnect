@@ -76,5 +76,18 @@ class HomeController extends Controller
         return view('test')->with($data);
     }
 
+    public function fileupload(Request $request){
+
+         $request->validate([
+            'fileToUpload' => 'required|file|max:1024',
+        ]);
+        
+        $fileName = "avatar".time().'.'.request()->fileToUpload->getClientOriginalExtension();
+        
+        $request->fileToUpload->storeAs('logos',$fileName);
+    
+        return 'ok';
+
+    }
     
 }
