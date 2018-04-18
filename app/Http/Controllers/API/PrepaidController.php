@@ -551,7 +551,7 @@ class PrepaidController extends Controller
         
         $im = ImageCreateFromPNG('images/reload/'.$image);
         $black = ImageColorAllocate($im, 0, 0, 0);
-        $font = 'fonts/Digit.ttf';
+        $font = 'Digit.TTF';
         imagettftext($im, 17, 0, $x_s, $y_s, $black, $font, $serial);
         imagettftext($im, 17, 0, $x_p, $y_p, $black, $font, $pin);
         $background = imagecolorallocate($im, 255, 255, 255);
