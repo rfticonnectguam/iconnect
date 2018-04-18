@@ -77,8 +77,9 @@ class HomeController extends Controller
     }
 
     public function fileupload(Request $request){
+         
 
-         $request->validate([
+	$request->validate([
             'fileToUpload' => 'required|file|max:1024',
         ]);
         
@@ -86,7 +87,7 @@ class HomeController extends Controller
         
         $request->fileToUpload->storeAs('logos',$fileName);
     
-        return 'ok';
+        return $fileName;
 
     }
     

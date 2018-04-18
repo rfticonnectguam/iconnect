@@ -5,7 +5,7 @@
 
 $ = (typeof $ !== 'undefined') ? $ : {};
 $.iconnectguam = (typeof $.iconnectguam !== 'undefined') ? $.iconnectguam : {};
-$.iconnectguam.home = (typeof $.iconnectguam.home !== 'undefined') ? $.iconnectguam.home : {};
+$.iconnectguam.contacts = (typeof $.iconnectguam.contacts !== 'undefined') ? $.iconnectguam.contacts : {};
 
 $.iconnectguam.contacts = (function() {
 

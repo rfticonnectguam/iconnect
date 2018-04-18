@@ -5,7 +5,7 @@
 
 $ = (typeof $ !== 'undefined') ? $ : {};
 $.iconnectguam = (typeof $.iconnectguam !== 'undefined') ? $.iconnectguam : {};
-$.iconnectguam.home = (typeof $.iconnectguam.home !== 'undefined') ? $.iconnectguam.home : {};
+$.iconnectguam.events = (typeof $.iconnectguam.events !== 'undefined') ? $.iconnectguam.events : {};
 
 $.iconnectguam.events = (function() {
 
