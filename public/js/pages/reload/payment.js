@@ -79,7 +79,7 @@ $.iconnectguam.reload.payment = (function() {
                   $.each(result.data,function(i,val){
                       $('#Country').append(" <option value="+val.value+" selected>"+val.name+"</option>");
                   });
-                  $('#Country').append(" <option value='0' selected>--Select Country--</option>");
+                  $('#Country').append(" <option value='0' selected>Country</option>");
               }else{
                   console.log("failed to get list of countries");
               }
@@ -196,8 +196,15 @@ $.iconnectguam.reload.payment = (function() {
           ZipCode == false ? (__showError('ZipCode',"Required"), submit=false) : "";
               
 
-          var Country = $.xcript.validateInputs(data.Country);
-          Country == false ? (__showError('Country',"Required"), submit=false) : "";
+          if(data.Country == 0){
+            //show Error Msg
+            __showError('Country',"Required");
+            submit=false;
+            
+          }else{
+             var Country = $.xcript.validateInputs(data.Country);
+             Country == false ? (__showError('Country',"Required"), submit=false) : "";
+          }
               
           var Expiry_date = $.xcript.validateInputs(data.Expiry_date);
           Expiry_date == false ? (__showError('Expiry_date',"Required"), submit=false) : "";

@@ -151,7 +151,7 @@
 								<div class="form-group ParentCountry">
 
 									 <select name="Country" class="form-control" id="Country">
-								      	<option value="0" selected>--Select Country--</option>
+								      	<option value="0" selected>Country</option>
 								    </select>
 									<span class="Error ErrorCountry"></span>
 								</div>
