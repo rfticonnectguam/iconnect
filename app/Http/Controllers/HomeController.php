@@ -77,22 +77,17 @@ class HomeController extends Controller
     }
 
     public function fileupload(Request $request){
-         
 
-	$request->validate([
+	   $request->validate([
             'fileToUpload' => 'required|file|max:1024',
         ]);
         
         $fileName = "avatar".time().'.'.request()->fileToUpload->getClientOriginalExtension();
         
         $request->fileToUpload->storeAs('logos',$fileName);
-<<<<<<< HEAD
-    
-=======
         
-        //save to database
+        //todo save to database
 
->>>>>>> f4da9f6846c960d7b80e864899900a3745b97ec7
         return $fileName;
 
     }

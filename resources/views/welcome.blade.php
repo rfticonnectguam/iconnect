@@ -5,37 +5,6 @@
 @section('content')
 
 <div class="HomePageDiv">
-
-<<<<<<< HEAD
-<div class="container">
-	<div class="row">
-
-		<div class="offset-4 col-lg-4">
-			<br/><br/>
-			<div class="card">
-	                <div class="card-header">Upload File Example</div>
-	 
-	                <div class="card-body">
-
-						 <form action="{{url('/fileupload')}}" method="post" enctype="multipart/form-data">
-				            @csrf
-				            <div class="form-group">
-				                <input type="file" class="form-control" name="fileToUpload" id="exampleInputFile" aria-describedby="fileHelp">
-				                <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
-				            </div>
-				            <button type="submit" class="btn btn-primary">Submit</button>
-				        </form>
-				        </div>
-				     </div>
-				 </div>
-			</div>
-		 </div>
-	</div>
-</div>
-	
-
-
-=======
 	<div class="container">
 		<div class="row">
 
@@ -59,7 +28,6 @@
 			</div> --}}
 		</div>
 	 </div>
->>>>>>> f4da9f6846c960d7b80e864899900a3745b97ec7
 </div>
     
 @endsection
