@@ -1,5 +1,7 @@
 //TODO
 
+//File upload then try on server
+
 //Implement logs
 
 //Page for reloadPayment send email

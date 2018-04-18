@@ -12,6 +12,7 @@ $.iconnectguam.reload = (function() {
 	var __attachedEvents = function(){
 
       let base_url = 'http://34.217.45.230/reygie/iconnect';
+      //let base_url = window.location.origin;
 
 	   	//remove existing cookie
 	    $.removeCookie("selectedCard");
