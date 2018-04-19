@@ -16,11 +16,11 @@ $( document ).ready(function() {
 		$('.NavItem').removeClass('active');
 		$('.loader').addClass('hidden');
 
-		if(url[1] == 'mymobile'){
+		if(url == 'mymobile'){
 			$('.myMobile').addClass('active');
-		}else if(url[1] == 'mylte'){
+		}else if(url == 'mylte'){
 			$('.myLTE').addClass('active');
-		}else if(url[1] == 'contacts'){
+		}else if(url == 'contacts'){
 			$('.connectWithUs').addClass('active');
 		}
 
