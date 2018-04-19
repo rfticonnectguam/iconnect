@@ -12,7 +12,7 @@ $( document ).ready(function() {
 		//let base_url = window.location.origin;
 
 		//add active class when page load;		
-		let url = window.location.pathname.split( '/' );
+		let url = window.location.pathname.split("/").pop();
 		$('.NavItem').removeClass('active');
 		$('.loader').addClass('hidden');
 
