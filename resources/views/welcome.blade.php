@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="row">
 
-			{{-- <div class="offset-4 col-lg-4">
+			 <div class="offset-4 col-lg-4">
 				<br/><br/>
 				<div class="card">
 		                <div class="card-header">Upload File Example</div>
@@ -26,7 +26,7 @@
 					        </form>
 					    </div>
 				</div>
-			</div> --}}
+			</div>
 		</div>
 	 </div>
 </div>
