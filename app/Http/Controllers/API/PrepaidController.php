@@ -440,7 +440,7 @@ class PrepaidController extends Controller
             'Address' => 'required|string|min:5|max:250',
             'City' => 'required|string|min:5|max:25',
             'ZipCode' => 'required|integer|digits_between:4,4',
-            'Country' => 'required|string|min:1|max:25',
+            'Country' => 'required|string|min:5|max:25',
             'Expiry_date' => 'required|string|min:5|max:25',
             'Card_type' => 'required|string',
             'g-recaptcha-response' => 'required|recaptcha',
@@ -551,7 +551,7 @@ class PrepaidController extends Controller
         
         $im = ImageCreateFromPNG('images/reload/'.$image);
         $black = ImageColorAllocate($im, 0, 0, 0);
-        $font = 'Digit.TTF';
+        $font = 'fonts/Digit.ttf';
         imagettftext($im, 17, 0, $x_s, $y_s, $black, $font, $serial);
         imagettftext($im, 17, 0, $x_p, $y_p, $black, $font, $pin);
         $background = imagecolorallocate($im, 255, 255, 255);

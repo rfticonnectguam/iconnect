@@ -59,10 +59,6 @@ Route::post('/test', 'HomeController@sendData')->name('sendData');
 //test route for stored procedure
 Route::get('/getAllContactMsg', 'ContactController@getAllContactMsg')->name('getAllContactMsg');
 
-//test for fileupload
-Route::post('/fileupload', 'HomeController@fileupload')->name('fileupload');
-
-
 Route::get('404',['as'=>'404','uses'=>'ErrorHandlerController@errorCode404']);
 Route::get('405',['as'=>'405','uses'=>'ErrorHandlerController@errorCode405']);
 

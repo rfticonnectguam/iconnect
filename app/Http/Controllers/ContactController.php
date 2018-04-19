@@ -52,18 +52,20 @@ class ContactController extends Controller
 
             //store in database
             try {
-
-                DB::table('contact_messages')->insert([
-                    'Name' => $request->Name,
-                    'Email' => $request->Email,
-                    'Message' => $request->Message,
-                    'created_at' => new DateTime(),
-                ]);
+                //save message
+                $saveData = DB::table('contact_messages')->insert([
+                        'Name' => $request->Name,
+                        'Email' => $request->Email,
+                        'Message' => $request->Message,
+                        'created_at' => new DateTime(),
+                    ]);
+               
+                 //send email to admin
+                Mail::send(new ContactEmail());
 
                 try {
 
-                    //send email to admin
-                    Mail::send(new ContactEmail());
+                    $saveData;
 
                     $payload = [
                         'status' => 'SUCCESS',

@@ -149,10 +149,7 @@
 								</div>
 
 								<div class="form-group ParentCountry">
-
-									 <select name="Country" class="form-control" id="Country">
-								      	<option value="0" selected>Country</option>
-								    </select>
+								    <input type="text" name="Country" class="form-control Capitalized" id="Country" placeholder="Country">
 									<span class="Error ErrorCountry"></span>
 								</div>
 

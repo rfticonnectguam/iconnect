@@ -53,8 +53,5 @@ Route::get('/successpayment/{pin}/{serial}', 'API\PrepaidController@showImage')-
 //test route for stored procedure
 Route::post('/getmsg', 'ContactController@getMsgById');
 
-//This API is for getting list of countries
-Route::get('/getAllCountries', 'API\CountryController@getAllCountries')->name('getAllCountries');
-
 
 

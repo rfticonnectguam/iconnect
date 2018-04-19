@@ -1,9 +1,5 @@
 //TODO
 
-//Implement value after failed on backend validation
-
-//File upload then try on server
-
 //Implement logs
 
 //Page for reloadPayment send email
