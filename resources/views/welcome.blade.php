@@ -6,8 +6,6 @@
 
 <div class="HomePageDiv">
 
-<<<<<<< HEAD
-=======
 	<div class="container">
 		<div class="row">
 
@@ -31,7 +29,6 @@
 			</div>
 		</div>
 	 </div>
->>>>>>> developmentv2
 </div>
     
 @endsection
