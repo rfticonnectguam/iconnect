@@ -158,7 +158,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6 googleMap no-space">
-					{!! Mapper::render() !!}
+					
 				</div>
 
 				<div class="col-lg-6 ">
