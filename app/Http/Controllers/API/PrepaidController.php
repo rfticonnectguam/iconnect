@@ -23,16 +23,26 @@ use App\Mail\sendPaymentErrorEmail;//added payment error mail
 use App\Mail\reloadSuccess;//added reload success mail
 
 use App\Library\xcriptValidation;//added xcript custom validation library
+use App\Library\Authnet\ICGAuthnet;//added xcript custom validation library
 
 class PrepaidController extends Controller
 {
-    //
+
+    //authnet verification
+    public function AuthnetValidation(){
+
+        $Authnet = new ICGAuthnet();
+
+        return $Authnet->AuthVerification();
+    }
+
     public function getNumberOfAvailablePrepaid5(){
 
 
         try {
         
             $prepaid_data = Prepaid_5::where('availability', 0)->get();
+            $payment->setTransaction($cc_number, $exp_date, $price, $cvv);
 
         } catch (Exception $e) {
             return [

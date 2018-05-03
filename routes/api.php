@@ -56,5 +56,8 @@ Route::post('/getmsg', 'ContactController@getMsgById');
 //This API is for getting list of countries
 Route::get('/getAllCountries', 'API\CountryController@getAllCountries')->name('getAllCountries');
 
+// authnet
+Route::get('AuthnetValidation','API\PrepaidController@AuthnetValidation');
+
 
 
