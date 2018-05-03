@@ -23,7 +23,7 @@ class ICGAuthnet
         // $AuthnetKey = '86tkXx9U927vW5mw'; 
         // $isSandbox = false;
 
-        $cc_number = '370000000000002';
+        $cc_number = '371449635398431';
         $exp_date = '12/02';
         $price = '20';
         $cvv =  '123';
@@ -54,13 +54,27 @@ class ICGAuthnet
              // ];
 
              if ($payment->isApproved()) {
-                return 'ok';
+
+                return [
+                    'status' => 'SUCCESS',
+                    'message' => $payment->getResponseMessage(),
+                ];
+
              }else if($payment->isDeclined()){
-                return 'declined';
+                return [
+                    'status' => 'DECLINE',
+                    'message' => $payment->getResponseMessage(),
+                ];
              }else if($payment->isError()){
-                return 'error';
+                return [
+                    'status' => 'ERROR',
+                    'message' => $payment->getResponseMessage(),
+                ];
              }else{
-                return 'no response';
+                return [
+                    'status' => 'ERROR',
+                    'message' => 'no response',
+                ];
              }
 
         } catch (Exception $e) {
